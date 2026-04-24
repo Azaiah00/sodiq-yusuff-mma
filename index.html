@@ -20,33 +20,21 @@
   @media (max-width: 1000px) { .hero-split { grid-template-columns: 1fr; gap: 32px; text-align: center; } }
   .hero-photo {
     position: relative;
-    aspect-ratio: 4/5;
+    aspect-ratio: 3/4;
     overflow: hidden;
     background: var(--bg-2);
   }
   .hero-photo::before {
     content: '';
     position: absolute; inset: 0; z-index: 2;
-    background:
-      linear-gradient(135deg, rgba(0,135,81,0.25) 0%, transparent 40%),
-      linear-gradient(0deg, var(--bg) 0%, transparent 35%);
+    background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, transparent 25%);
     pointer-events: none;
   }
   .hero-photo img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center top;
-    transform: scale(1.02);
-    transition: transform 8s ease-out;
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    transition: transform 1s var(--ease);
   }
-  .hero-photo.loaded img { transform: scale(1.08); }
-  .hero-photo::after {
-    content: 'SUPER · SODIQ · YUSUFF';
-    position: absolute;
-    bottom: 16px; left: 0; right: 0; z-index: 3;
-    font-family: var(--font-display);
-    font-size: 11px; letter-spacing: 0.3em;
-    color: var(--nigeria-green-bright);
-    text-align: center; text-transform: uppercase;
-  }
+  .hero-photo:hover img { transform: scale(1.03); }
   .hero-photo-frame {
     position: relative;
     border: 1px solid var(--border-bright);
@@ -61,6 +49,11 @@
   }
   .hero-photo-frame::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
   .hero-photo-frame::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+  .hero-photo-frame { box-shadow: 0 0 50px rgba(0, 179, 104, 0.2), 0 20px 60px rgba(0, 0, 0, 0.55); animation: posterFloat 7s ease-in-out infinite; }
+  @keyframes posterFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
   .hero-content-left { text-align: left; position: relative; z-index: 1; }
   @media (max-width: 1000px) { .hero-content-left { text-align: center; } }
   .hero-content-left .johnson-box { margin-left: 0; margin-right: 0; }
@@ -161,7 +154,7 @@
       <div class="reveal reveal-delay-1">
         <div class="hero-photo-frame">
           <div class="hero-photo">
-            <img src="assets/images/sodiq-ufc-celebration-nigeria.jpg" alt="Sodiq 'Super' Yusuff — UFC fighter celebrating in the Octagon wearing a green Nigerian headband and Nigerian flag fight shorts" loading="eager" />
+            <img src="assets/images/sodiq-hero-poster.jpg" alt="Super Sodiq Yusuff — UFC Featherweight, Nigerian flag poster with championship typography" loading="eager" />
           </div>
         </div>
       </div>
