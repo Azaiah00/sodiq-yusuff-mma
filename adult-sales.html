@@ -378,4 +378,114 @@
           <li><span><strong>1.6 million TikTok followers</strong></span></li>
         </ul>
         <div class="pullquote" style="padding:32px 0 0;">
-          "Sodiq is one of the main reasons I started in martial arts. World class coach and world 
+          "Sodiq is one of the main reasons I started in martial arts. World class coach and world class person."
+          <div style="font-family:var(--font-body);font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:12px;">— Evan Vucci</div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE EBOOK SHOWCASE -->
+      <div class="ebook-showcase reveal">
+        <div class="ebook-scene" id="ebookScene">
+          <div class="ebook-sparkle s1"></div>
+          <div class="ebook-sparkle s2"></div>
+          <div class="ebook-sparkle s3"></div>
+          <div class="ebook-sparkle s4"></div>
+          <div class="ebook-sparkle s5"></div>
+          <div class="ebook-book" id="ebookBook" role="img" aria-label="The Mindset of a Champion ebook cover">
+            <div class="ebook-free-badge">Free Bonus</div>
+            <div class="ebook-cover-face">
+              <div class="ebook-top-badge">A Super Sodiq Production</div>
+              <div>
+                <h4 class="ebook-title-main">The Mindset<br/><span class="em">of a<br/>Champion</span></h4>
+                <p class="ebook-title-sub">How to Build Unstoppable Confidence in All Areas of Your Life</p>
+              </div>
+              <div class="ebook-author">Sodiq "Super" Yusuff</div>
+            </div>
+            <div class="ebook-back"></div>
+            <div class="ebook-spine"></div>
+            <div class="ebook-pages"></div>
+          </div>
+        </div>
+        <div style="position:relative;z-index:1;">
+          <div class="kicker">Adult Bonus · Yours Free</div>
+          <h3 style="font-family:var(--font-display);margin:8px 0 16px;color:var(--white);text-transform:uppercase;font-size:1.75rem;line-height:1.1;">The Mindset of a Champion</h3>
+          <p style="color:var(--text-dim);">Sodiq's personal ebook — the mental frameworks that carried a kid from Lagos, Nigeria all the way to the UFC Octagon. Delivered digitally the moment you start your trial.</p>
+        </div>
+      </div>
+
+      <script>
+        (function() {
+          const scene = document.getElementById('ebookScene');
+          const book = document.getElementById('ebookBook');
+          if (!scene || !book) return;
+          let active = false;
+          scene.addEventListener('mouseenter', () => { active = true; book.style.animation = 'none'; });
+          scene.addEventListener('mouseleave', () => {
+            active = false;
+            book.style.transform = 'rotateY(-22deg) rotateX(2deg)';
+            setTimeout(() => { book.style.animation = ''; }, 800);
+          });
+          scene.addEventListener('mousemove', (e) => {
+            if (!active) return;
+            const rect = scene.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            book.style.transform = 'rotateY(' + (-22 + x * 30) + 'deg) rotateX(' + (2 - y * 15) + 'deg) translateY(-8px)';
+          });
+        })();
+      </script>
+    </div>
+
+    <!-- FORM #4 (Adult Sales — mid-letter). -->
+    <form class="form-card reveal" data-form style="margin-top:48px;">
+      <h3 class="form-head">Some people have read enough. If that's you — start right here.</h3>
+      <div class="form-grid">
+        <div class="field"><label>First Name</label><input type="text" required /></div>
+        <div class="field"><label>Last Name</label><input type="text" required /></div>
+        <div class="field"><label>Phone Number</label><input type="tel" required /></div>
+        <div class="field"><label>Email Address</label><input type="email" required /></div>
+      </div>
+      <div style="text-align:center;margin-top:28px;">
+        <button type="submit" class="btn btn-blood btn-lg pulse">Yes — I'm Ready to Start My 30-Day Free Trial</button>
+        <p class="form-foot">No credit card. No experience required.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="letter-prose reveal">
+      <h3>The close</h3>
+      <p>Your first 30 days are completely free. No credit card. No pressure. <strong>The only thing left is the decision.</strong></p>
+      <p>Fill out the form below. We will reach out as soon as possible.</p>
+    </div>
+
+    <form class="form-card reveal" data-form style="margin-top:48px;">
+      <h3 class="form-head">Start your 30-day free trial</h3>
+      <div class="form-grid">
+        <div class="field"><label>First Name</label><input type="text" required /></div>
+        <div class="field"><label>Last Name</label><input type="text" required /></div>
+        <div class="field"><label>Phone Number</label><input type="tel" required /></div>
+        <div class="field"><label>Email Address</label><input type="email" required /></div>
+      </div>
+      <div style="text-align:center;margin-top:28px;">
+        <button type="submit" class="btn btn-blood btn-lg pulse">Yes — I'm Ready to Start My 30-Day Free Trial</button>
+        <p class="form-foot">No credit card. Spots are limited.</p>
+      </div>
+    </form>
+
+    <div class="letter-prose reveal" style="margin-top:48px;">
+      <p style="text-align:center;font-family:var(--font-display);font-size:1.1rem;letter-spacing:0.05em;color:var(--white);">
+        Sodiq "Super" Yusuff<br/>
+        <span style="color:var(--text-muted);font-size:0.85rem;letter-spacing:0.15em;">UFC Fighter · Academy Owner · Head Coach</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

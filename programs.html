@@ -193,4 +193,53 @@
         <li>If you are looking for community — you will find it here</li>
       </ul>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
-        <a href="contact.html#trial" class="btn btn-blood btn-lg btn-arrow">Claim Your 
+        <a href="contact.html#trial" class="btn btn-blood btn-lg btn-arrow">Claim Your Free 30-Day Trial — Adults</a>
+        <a href="adult-sales.html" class="btn btn-ghost btn-lg">Read the Full Story →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========== UNIVERSAL CTA FORM =========== -->
+<section class="section" id="trial" style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">Not Sure Yet?</div>
+      <h2 class="display-2">Not sure which program is right for you? We will help you figure it out.</h2>
+      <p class="lede" style="margin:24px auto 0;">Fill out the short form below and someone from our team will get back to you as soon as possible. We will answer your questions, point you toward the right program, and get your first class on the calendar — all at no cost to you.</p>
+    </div>
+
+    <!-- FORM #2 (Programs — universal trial). Routing: see FORMS-GHL-ROUTING.md §2.
+         Same as Home + tag by "interested_in" for personalization.
+         Redirect after submit → thank-you.html -->
+    <form class="form-card reveal" data-form>
+      <div class="form-grid">
+        <div class="field"><label>First Name</label><input type="text" required /></div>
+        <div class="field"><label>Last Name</label><input type="text" required /></div>
+        <div class="field"><label>Phone Number</label><input type="tel" required /></div>
+        <div class="field"><label>Email Address</label><input type="email" required /></div>
+        <div class="field full"><label>Who is this for?</label>
+          <select required>
+            <option value="">Select…</option><option>Myself</option><option>My Child</option><option>Both</option>
+          </select>
+        </div>
+        <div class="field full"><label>Child's age (if applicable)</label><input type="text" placeholder="Optional" /></div>
+        <div class="field full"><label>What are you most interested in?</label>
+          <select>
+            <option value="">Select…</option>
+            <option>Fitness</option><option>Self-Defense</option><option>Competition</option>
+            <option>My Child's Development</option><option>Not Sure Yet</option>
+          </select>
+     l" /></div>
+      </div>
+      <div style="text-align:center;margin-top:28px;"><button type="submit" class="btn btn-blood btn-lg pulse">Get Started — My First 30 Days Are Free</button></div>
+    </form>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
