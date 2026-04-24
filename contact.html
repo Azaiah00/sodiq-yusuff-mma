@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Sodiq "Super" Yusuff MMA</title>
+<meta name="description" content="Start your 30-day free trial or reach out with any questions. Sodiq Yusuff MMA — Waldorf, Maryland." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="icon" type="image/jpeg" href="assets/images/logo-super-sodiq-green.jpg" />
+<style>
+  .two-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px; }
+  @media (max-width: 800px) { .two-paths { grid-template-columns: 1fr; } }
+  .path-card {
+    padding: 40px; background: var(--surface); border: 1px solid var(--border);
+    position: relative; transition: all 0.3s;
+  }
+  .path-card::before {
+    content: attr(data-num);
+    position: absolute; top: -16px; left: 32px;
+    width: 44px; height: 44px;
+    background: var(--nigeria-green);
+    color: white; font-family: var(--font-display);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+  .path-card:hover { border-color: var(--nigeria-green-bright); }
+  .info-card {
+    padding: 28px; background: var(--surface); border: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .info-card strong { font-family: var(--font-display); font-size: 14px; letter-spacing: 0.15em; color: var(--nigeria-green-bright); text-transform: uppercase; }
+  .info-card a { color: var(--white); font-size: 1.1rem; }
+  .info-card a:hover { color: var(--nigeria-green-bright); }
+  .map-frame {
+    aspect-ratio: 16/9; background: var(--bg-3); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+</style>
+</head>
+<body>
+
+<div id="nav-slot"></div>
+
+<section class="hero" style="min-height:55vh;">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="kicker reveal">Start Here</div>
+    <h1 class="hero-headline reveal reveal-delay-1" style="font-size:clamp(2rem,5vw,4.5rem);">
+      We are ready<br/>
+      <span class="accent">when you are</span>.
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">Take the first step — start your 30-day free trial or reach out with any questions. Whether you are ready to get started today or you still have questions you want answered first — this is the right place.</p>
+  </div>
+</section>
+
+<!-- =========== TWO PATHS =========== -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">Two Paths</div>
+      <h2 class="display-2">Not sure where to start?<br/>Here are your two options.</h2>
+    </div>
+    <div class="two-paths">
+      <div class="path-card reveal" data-num="01">
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--white);letter-spacing:0.02em;text-transform:uppercase;margin-bottom:16px;">I'm ready to start my 30-day free trial</h3>
+        <p style="color:var(--text-dim);">This is for you if you have read enough, you like what you see, and you are ready to get on the mat. Fill out the form below and someone from our team will reach out as soon as possible. Your trial includes a full tour of the facility, a free private lesson, and 30 days of unlimited MMA training — all at no cost.</p>
+        <p style="color:var(--text-dim);margin-top:12px;"><span class="highlight">Want to skip to your first class from day one?</span> Just let us know in the form. We will have you on the mat as soon as you walk through the door.</p>
+      </div>
+      <div class="path-card reveal reveal-delay-1" data-num="02">
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--white);letter-spacing:0.02em;text-transform:uppercase;margin-bottom:16px;">I have questions before I start</h3>
+        <p style="color:var(--text-dim);">This is for you if you want to talk to someone first. Fill out the same form below, tell us what you want to know, and we will get back to you as soon as possible with everything you need.</p>
+        <p style="color:var(--text-dim);margin-top:12px;"><span class="highlight">There is no pressure either way.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== THE FORM =========== -->
+<section class="section" id="trial" style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">The Form</div>
+      <h2 class="display-2">Fill out the short form below.<br/>We will take it from there.</h2>
+    </div>
+    <form class="form-card reveal" data-form>
+      <div class="form-grid">
+        <div class="field"><label>First Name</label><input type="text" required /></div>
+        <div class="field"><label>Last Name</label><input type="text" required /></div>
+        <div class="field"><label>Phone Number</label><input type="tel" required /></div>
+        <div class="field"><label>Email Address</label><input type="email" required /></div>
+        <div class="field full"><label>Who is this for?</label>
+          <select required>
+            <option value="">Select…</option><option>Myself</option><option>My Child</option><option>Both</option>
+          </select>
+        </div>
+        <div class="field full"><label>Child's age (if applicable)</label><input type="text" placeholder="Optional" /></div>
+        <div class="field full"><label>What program are you most interested in?</label>
+          <select>
+            <option value="">Select…</option>
+            <option>Parent &amp; Me (Ages 2–4)</option>
+            <option>Little Ninjas (Ages 4–7)</option>
+            <option>Juniors (Ages 7–12)</option>
+            <option>Teens (Ages 13–17)</option>
+            <option>Adults (Ages 18+)</option>
+            <option>Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="field full"><label>Where are you in your decision?</label>
+          <select>
+            <option value="">Select…</option>
+            <option>Ready to start my 30-day free trial</option>
+            <option>I want to jump straight into my first class</option>
+            <option>I have a few questions first</option>
+            <option>I am just exploring for now</option>
+          </select>
+        </div>
+        <div class="field full"><label>Anything else you want us to know?</label><textarea rows="3"></textarea></div>
+      </div>
+      <div style="text-align:center;margin-top:28px;">
+        <button type="submit" class="btn btn-blood btn-lg pulse">Yes — I'm Ready to Start My 30-Day Free Trial</button>
+        <p class="form-foot">No credit card required. No obligation. Just the first step.</p>
+      </div>
+      <!-- FORM #3 (Contact — richest data). Routing: see FORMS-GHL-ROUTING.md §3.
+           - Route by `program` field directly to the corresponding age-group sequence
+           - If stage="Jump into first class" → flag HOT LEAD, notify Sodiq immediately
+           - If stage="Just exploring" → slower nurture cadence
+           Redirect after submit → thank-you.html -->
+    </form>
+  </div>
+</section>
+
+<!-- =========== DIRECT CONTACT =========== -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">Reach Out Directly</div>
+      <h2 class="display-2">Prefer to reach out directly?</h2>
+    </div>
+    <div class="grid-3 mb-lg">
+      <div class="info-card reveal">
+        <strong>Phone & Text</strong>
+        <a href="tel:3018887285">301-888-7285</a>
+        <p style="color:var(--text-muted);font-size:0.9rem;">Call or text us any time.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <strong>Instagram</strong>
+        <a href="https://instagram.com/supersodiqmma" target="_blank" rel="noopener">@supersodiqmma</a>
+        <p style="color:var(--text-muted);font-size:0.9rem;">Send a direct message — we respond promptly.</p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <strong>Visit</strong>
+        <a href="https://maps.google.com/?q=3480+Rockefeller+Ct+Waldorf+MD+20602" target="_blank" rel="noopener">3480 Rockefeller Ct, Ste I-J<br/>Waldorf, MD 20602</a>
+      </div>
+    </div>
+
+    <!-- Map embed -->
+    <div class="map-frame reveal">
+      <iframe
+        src="https://maps.google.com/maps?q=3480%20Rockefeller%20Ct%2C%20Waldorf%2C%20MD%2020602&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="100%" style="border:0;filter:grayscale(0.3) contrast(1.1);" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Sodiq Yusuff MMA location map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- =========== SCHEDULE =========== -->
+<section class="section" style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container-narrow" style="text-align:center;">
+    <div class="reveal">
+      <div class="kicker" style="padding-left:0;">&nbsp;</div>
+      <h2 class="display-2 mb-md">Wondering when we're open?</h2>
+      <p class="lede" style="margin:0 auto 24px;">We offer morning and evening classes throughout the week so that busy schedules — including parents, professionals, and students — can all find a time that works.</p>
+      <p style="color:var(--text-dim);">Call or text <a href="tel:3018887285" class="highlight" style="text-decoration:underline;">301-888-7285</a> for current schedule details. Our team will match you with the best class time when they follow up with you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== TESTIMONIALS =========== -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">Still on the Fence?</div>
+      <h2 class="display-2">Read what real students and parents are saying.</h2>
+    </div>
+    <div class="reviews">
+      <div class="review reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I was terrified to begin training but the nicest guy in the room ended up being a top UFC fighter and he encouraged me every single day."</p>
+        <p class="review-author"><strong>Evan Vucci</strong></p>
+      </div>
+      <div class="review reveal reveal-delay-1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"My daughter truly looks forward to and loves attending her classes."</p>
+        <p class="review-author"><strong>Chantel Robinson</strong> · Parent</p>
+      </div>
+      <div class="review reveal reveal-delay-2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I am 60 years old. I joined for the conditioning and learning new skills. Best decision I made."</p>
+        <p class="review-author"><strong>John Karis</strong></p>
+      </div>
+      <div class="review reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"This place is more than just a gym — it's a community where everyone is encouraged to reach their full potential."</p>
+        <p class="review-author"><strong>AaRae Alexander</strong></p>
+      </div>
+      <div class="review reveal reveal-delay-1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I left each class feeling stronger, more confident, and excited to come back."</p>
+        <p class="review-author"><strong>Quinton Dixon</strong></p>
+      </div>
+    </div>

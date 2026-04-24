@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Sodiq — The Man Behind the Academy</title>
+<meta name="description" content="The story of how a kid from Lagos, Nigeria became a UFC fighter — and why he came back to build something in your community." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="icon" type="image/jpeg" href="assets/images/logo-super-sodiq-green.jpg" />
+<style>
+  .about-hero-split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+  @media (max-width: 1000px) { .about-hero-split { grid-template-columns: 1fr; text-align: center; } }
+  .about-hero-photo {
+    position: relative; aspect-ratio: 3/4;
+    border: 1px solid var(--border-bright);
+    padding: 4px; background: var(--bg-2);
+    overflow: hidden;
+  }
+  .about-hero-photo::before, .about-hero-photo::after {
+    content: ''; position: absolute;
+    width: 24px; height: 24px;
+    border: 2px solid var(--nigeria-green-bright);
+    z-index: 4;
+  }
+  .about-hero-photo::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+  .about-hero-photo::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+  .about-hero-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  }
+  .story-photo {
+    position: relative; aspect-ratio: 16/10;
+    overflow: hidden; margin: 32px 0;
+    border: 1px solid var(--border);
+  }
+  .story-photo::before {
+    content: ''; position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.75));
+    pointer-events: none;
+  }
+  .story-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .story-photo .tag {
+    position: absolute; bottom: 16px; left: 20px; z-index: 3;
+    font-family: var(--font-display); font-size: 11px;
+    letter-spacing: 0.2em; color: var(--nigeria-green-bright);
+    text-transform: uppercase;
+  }
+  .flag-strip { height: 4px; display: flex; }
+  .flag-strip > span { flex: 1; }
+  .flag-strip > span:nth-child(1), .flag-strip > span:nth-child(3) { background: var(--nigeria-green); }
+  .flag-strip > span:nth-child(2) { background: var(--white); }
+  .cred-box {
+    background: var(--bg-2); border: 1px solid var(--border-bright);
+    padding: 40px; position: sticky; top: 100px;
+  }
+  .cred-box h3 {
+    font-family: var(--font-display); font-size: 16px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--nigeria-green-bright); margin-bottom: 20px;
+  }
+  .cred-box ul li {
+    padding: 10px 0 10px 20px; position: relative;
+    border-bottom: 1px solid var(--border); font-size: 0.95rem; color: var(--text-dim);
+  }
+  .cred-box ul li::before { content: '▸'; position: absolute; left: 0; color: var(--nigeria-green-bright); }
+  .cred-box ul li:last-child { border-bottom: none; }
+  .cred-box ul li strong { color: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 900px) {
+    .cred-box { position: static; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="nav-slot"></div>
+
+<!-- =========== HERO =========== -->
+<section class="hero" style="min-height:70vh;">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="about-hero-split">
+      <div>
+        <div class="kicker reveal">The Man Behind the Academy</div>
+        <h1 class="hero-headline reveal reveal-delay-1" style="font-size:clamp(2rem,5vw,4.5rem);text-align:left;">
+          From <span class="accent">Lagos, Nigeria</span><br/>
+          to the <span class="accent">UFC Octagon</span>.<br/>
+          Now home.
+        </h1>
+        <div class="flag-strip reveal reveal-delay-2" style="max-width:300px;margin:32px 0 0;"><span></span><span></span><span></span></div>
+        <p class="hero-sub reveal reveal-delay-2 mt-md" style="margin-left:0;text-align:left;">This is the story of how a kid from Lagos, Nigeria became a UFC fighter — and why he came back to build something in your community.</p>
+      </div>
+      <div class="about-hero-photo reveal reveal-delay-1">
+        <img src="assets/images/sodiq-ufc-portrait-profile.jpg" alt="Sodiq Yusuff UFC official portrait — profile shot" loading="eager" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== STATS RIBBON =========== -->
+<section class="section-sm" style="padding-bottom:0;">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><span class="stat-number" data-count="13">0</span><span class="stat-label">Pro Wins</span></div>
+      <div class="stat"><span class="stat-number" data-count="6">0</span><span class="stat-label">UFC Wins</span></div>
+      <div class="stat"><span class="stat-number" data-count="9">0</span><span class="stat-label">Amateur Record (0 L)</span></div>
+      <div class="stat"><span class="stat-number" data-count="300">0</span><span class="stat-label">UFC Card Competed</span></div>
+      <div class="stat"><span class="stat-number" data-count="100" data-prefix="$" data-suffix="K+">0</span><span class="stat-label">Bonuses Earned</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== MAIN CONTENT + CREDENTIALS SIDEBAR =========== -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="prose">
+
+        <div class="reveal">
+          <div class="kicker">Section 01 — The Beginning</div>
+          <h2 class="display-3 mb-md">He did not grow up with every advantage. He grew up with the opposite.</h2>
+          <p>Sodiq Yusuff was born in Lagos, Nigeria. At nine years old he came to America — to Prince George's County, Maryland — with his mother, landing in a country whose language, culture, and social rules were nothing like anything he had known.</p>
+          <p>He did not speak fluently. He did not know anyone. He was the kid who looked different, sounded different, and stood out in every way that makes childhood harder than it already is. He got picked on. He learned quickly that in this new world, <span class="highlight">confidence was not given. It had to be built.</span></p>
+        </div>
+
+        <div class="divider mb-lg mt-lg"></div>
+
+        <div class="reveal">
+          <div class="kicker">Section 02 — The Discovery</div>
+          <h2 class="display-3 mb-md">He found wrestling. And then something in him never turned off.</h2>
+          <p>At Bladensburg High School, Sodiq discovered wrestling. Not as a casual hobby. As an obsession. He was good. And the more he trained, the more he wanted to see just how far that could go.</p>
+          <p>His mother did not know. He competed in <span class="highlight">eleven amateur fights</span> before she ever watched a single one. He was working at Pizza Hut. Attending Bowie State University. Trying to honor his mother's dream of seeing her son graduate while quietly chasing a dream of his own that most people around him would have called impossible.</p>
+        </div>
+
+        <div class="story-photo reveal">
+          <img src="assets/images/sodiq-training-gym-stance.jpg" alt="Sodiq Yusuff in boxing stance at Team Lloyd Irvin" loading="lazy" />
+          <span class="tag">Team Lloyd Irvin · Camp Springs, MD</span>
+        </div>
+
+        <div class="divider mb-lg mt-lg"></div>
+
+        <div class="reveal">
+          <div class="kicker">Section 03 — The Call That Changed Everything</div>
+          <h2 class="display-3 mb-md">Master Lloyd Irvin called. Sodiq picked up. Everything changed.</h2>
+          <p>Former UFC fighter Sijara Eubanks reached out. Her coach, Master Lloyd Irvin — one of the most accomplished Brazilian Jiu-Jitsu coaches and MMA trainers in the world, and a UFC Hall of Fame coach — wanted to talk to Sodiq.</p>
+          <p>The conversation was simple. Lloyd asked what Sodiq was doing with his life. Sodiq told him the truth — school to make his mother happy, Pizza Hut to pay his way, and a dream he had not yet figured out how to reach.</p>
+          <p>Lloyd told him it was time to make a decision. Sodiq left school. He moved his entire focus to training at Team Lloyd Irvin in Camp Springs, Maryland. And in 2018, he <span class="highlight">earned his UFC contract on Dana White's Contender Series.</span></p>
+        </div>
+
+        <div class="divider mb-lg mt-lg"></div>
+
+        <div class="reveal">
+          <div class="kicker">Section 04 — The Debut No One Will Forget</div>
+          <h2 class="display-3 mb-md">He won his first UFC fight one week after the worst news of his life.</h2>
+          <p>The week before Sodiq was scheduled to fly to Adelaide, Australia for his UFC debut, his older brother Tope died of typhoid fever in Nigeria at age 34. His mother found out first. And she made a decision that only a mother could make — she did not tell him. <span class="highlight">She carried that loss alone for an entire week</span> so her son would not be distracted.</p>
+          <p>When Sodiq finally learned the truth, it hit him like the floor disappearing beneath him. He cried. His mother told him to stop. She said he had to focus.</p>
+          <p>He got on the plane. He walked into the Octagon in Australia. He destroyed his opponent by <span class="highlight">first-round knockout in 2 minutes and 14 seconds</span> and earned a Performance of the Night bonus. And in his post-fight interview, standing in the Octagon, he dedicated the performance to his brother Tope.</p>
+        </div>
+
+        <div class="story-photo reveal">
+          <img src="assets/images/sodiq-ufc-submission-ground.jpg" alt="Sodiq Yusuff executing a submission in the UFC Octagon" loading="lazy" />
+          <span class="tag">UFC Octagon · Inside the Cage</span>
+        </div>
+
+        <div class="pullquote reveal">This one's for my brother.</div>
+
+        <div class="reveal">
+          <div class="kicker">Section 05 — The UFC Career</div>
+          <h2 class="display-3 mb-md">What followed was a UFC career built on heart, skill, and unforgettable performances.</h2>
+        </div>
+
+        <!-- Record List -->
+        <div class="reveal mt-md">
+          <div class="record-row">
+            <div class="record-result win">W</div>
+            <div>
+              <div class="record-opponent">Suman Mokhtarian</div>
+              <span class="record-event">UFC FN · Adelaide · Dec 2018 · Performance of the Night</span>
+            </div>
+            <div class="record-method">KO · R1 · 2:14</div>
+          </div>
+          <div class="record-row">
+            <div class="record-result win">W</div>
+            <div>
+              <div class="record-opponent">Gabriel Benítez</div>
+              <span class="record-event">UFC 241 · Aug 2019 · Performance of the Night</span>
+            </div>
+            <div class="record-method">KO · R1</div>
+          </div>
+          <div class="record-row">
+            <div class="record-result win">W</div>
+            <div>
+              <div class="record-opponent">Andre Fili</div>
+              <span class="record-event">UFC 246 · McGregor vs Cerrone · Jan 2020</span>
+            </div>
+            <div class="record-method">Decision</div>
+          </div>
+          <div class="record-row">
+            <div class="record-result win">W</div>
+            <div>
+              <div class="record-opponent">Don Shainis</div>
+              <span class="record-event">UFC Fight Night · Oct 2022</span>
+            </div>
+            <div class="record-method">Sub · R1 · 0:30</div>
+          </div>
+          <div class="record-row">
+            <div class="record-result win">W</div>
+            <div>
+              <div class="record-opponent">Alex Cáceres</div>
+              <span class="record-event">Unanimous Decision · Leg kick masterclass</span>
+            </div>
+            <div class="record-method">Decision</div>
+          </div>
+          <div class="record-row">
+            <div class="record-result loss">L</div>
+            <div>
+              <div class="record-opponent">Edson Barboza</div>
+              <span class="record-event">UFC 300 · Apr 2024 · Fight of the Night</span>
+            </div>
+            <div class="record-method">Decision</div>
+          </div>
+        </div>
+
+        <div class="divider mb-lg mt-lg"></div>
+
+        <div class="reveal">
+          <div class="kicker">Section 06 — Beyond the Octagon</div>
+          <h2 class="display-3 mb-md">A UFC fighter who became a Disney voice actor. A martial artist who became a cultural ambassador.</h2>
+          <p>In 2024, Sodiq landed a role that had nothing to do with fighting and everything to do with who he is. Disney selected him to voice the character <strong>Sunday Adelekan in Iwaju</strong> — the first Disney+ animated series ever built around Nigerian culture and the city of Lagos. He voiced all six episodes.</p>
+          <p>He has also built one of the most engaged martial arts audiences on social media — <span class="highlight">1.6 million TikTok followers</span>, 123,000 on Instagram — through his <em>Unprofessional Breakdown</em> series, where his dry wit and genuine fight knowledge created a following that most fighters never come close to building.</p>
+        </div>
+
+        <div class="divider mb-lg mt-lg"></div>
+
+        <div class="reveal">
+          <div class="kicker">Section 07 — Why He Built This School</d

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You — Sodiq "Super" Yusuff MMA</title>
+<meta name="description" content="You're one step away from securing your 30-day free trial. Select a time to come in below." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="icon" type="image/jpeg" href="assets/images/logo-super-sodiq-green.jpg" />
+<style>
+  .thanks-hero {
+    padding: 80px 24px 40px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(0,135,81,0.25) 0%, transparent 60%),
+      var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .thanks-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.05;
+    margin: 16px auto 20px;
+    max-width: 900px;
+    letter-spacing: -0.01em;
+  }
+  .thanks-hero .accent { color: var(--nigeria-green-bright); }
+  .checkmark {
+    width: 88px; height: 88px;
+    background: var(--nigeria-green); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px; font-weight: 700; border-radius: 50%;
+    margin: 0 auto 24px;
+    animation: pop 0.8s var(--ease);
+    box-shadow: 0 0 0 8px rgba(0,135,81,0.2), 0 0 50px rgba(0,135,81,0.4);
+  }
+  @keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .thanks-video {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, var(--bg-2), var(--surface));
+    border: 1px solid var(--border-bright);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--text-muted); text-align: center; padding: 24px;
+    max-width: 960px; margin: 0 auto;
+  }
+  .thanks-video::before {
+    content: '▶';
+    width: 88px; height: 88px;
+    background: var(--nigeria-green);
+    color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; padding-left: 6px;
+    margin-bottom: 16px;
+    box-shadow: 0 0 40px rgba(0, 135, 81, 0.4);
+    cursor: pointer;
+  }
+  .thanks-video span {
+    font-family: var(--font-display); color: var(--nigeria-green-bright);
+    font-size: 12px; letter-spacing: 0.2em; display: block; margin-bottom: 6px;
+  }
+  .calendar-placeholder {
+    max-width: 960px; margin: 0 auto;
+    border: 2px dashed var(--border-bright);
+    padding: 60px 40px;
+    text-align: center;
+    background: var(--bg-2);
+  }
+  .calendar-placeholder h3 {
+    font-family: var(--font-display); color: var(--white);
+    font-size: 1.5rem; letter-spacing: 0.05em;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .calendar-placeholder p { color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<div id="nav-slot"></div>
+
+<section class="thanks-hero">
+  <div class="checkmark">✓</div>
+  <p style="font-family:var(--font-display);font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:var(--nigeria-green-bright);">Congratulations</p>
+  <h1>You're just <span class="accent">one step away</span> from securing your 30-day free trial.</h1>
+  <p class="lede" style="margin:0 auto;">Watch the short video below from Sodiq — then select a time that is convenient for you to come in and get started.</p>
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-- VIDEO -->
+    <div class="thanks-video reveal">
+      <span>Personal Video from Sodiq</span>
+      <p>Full-width video embed · Sodiq welcomes you personally · Under 2 minutes · Autoplay ON</p>
+      <p style="font-size:11px;margin-top:12px;opacity:0.6;">Replace this placeholder with a direct video embed (YouTube, Vimeo, or self-hosted MP4).</p>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="sec-head reveal mt-lg">
+      <div class="kicker">Select Your Visit Time</div>
+      <h2 class="display-2">We will have everything ready for you.</h2>
+    </div>
+
+    <div class="calendar-placeholder reveal">
+      <h3>GoHighLevel Calendar Embed</h3>
+      <p style="margin-bottom:20px;">Drop your GoHighLevel calendar widget embed code in place of this placeholder.</p>
+      <p style="font-size:0.9rem;color:var(--text-muted);">The calendar should be the dominant element on the page — easy to see, easy to tap on mobile. One action: pick a time.</p>
+    </div>
+
+    <!-- DIRECT FALLBACK -->
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <p style="color:var(--text-dim);">Questions before your visit? Call or text us directly at <a href="tel:3018887285" class="highlight" style="text-decoration:underline;">301-888-7285</a></p>
+      <p style="color:var(--text-muted);margin-top:8px;font-size:0.9rem;">Sodiq Yusuff MMA · 3480 Rockefeller Ct, Ste I-J · Waldorf, Maryland</p>
+    </div>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="asset

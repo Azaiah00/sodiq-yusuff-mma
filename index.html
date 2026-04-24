@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sodiq "Super" Yusuff MMA — Southern Maryland's Only UFC Fighter-Owned Academy</title>
+<meta name="description" content="Train at Southern Maryland's only UFC fighter-owned MMA academy. 30 days free. No credit card. No experience required. Waldorf, MD." />
+<meta property="og:title" content="Sodiq 'Super' Yusuff MMA — 30 Days Free" />
+<meta property="og:description" content="Southern Maryland's only UFC fighter-owned Mixed Martial Arts academy. Your first 30 days are completely free." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="icon" type="image/jpeg" href="assets/images/logo-super-sodiq-green.jpg" />
+<style>
+  /* Home-specific: split hero with cinematic photo */
+  .hero-split { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; }
+  @media (max-width: 1000px) { .hero-split { grid-template-columns: 1fr; gap: 32px; text-align: center; } }
+  .hero-photo {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: var(--bg-2);
+  }
+  .hero-photo::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 2;
+    background:
+      linear-gradient(135deg, rgba(0,135,81,0.25) 0%, transparent 40%),
+      linear-gradient(0deg, var(--bg) 0%, transparent 35%);
+    pointer-events: none;
+  }
+  .hero-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+    transform: scale(1.02);
+    transition: transform 8s ease-out;
+  }
+  .hero-photo.loaded img { transform: scale(1.08); }
+  .hero-photo::after {
+    content: 'SUPER · SODIQ · YUSUFF';
+    position: absolute;
+    bottom: 16px; left: 0; right: 0; z-index: 3;
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 0.3em;
+    color: var(--nigeria-green-bright);
+    text-align: center; text-transform: uppercase;
+  }
+  .hero-photo-frame {
+    position: relative;
+    border: 1px solid var(--border-bright);
+    padding: 4px;
+    background: var(--bg-2);
+  }
+  .hero-photo-frame::before, .hero-photo-frame::after {
+    content: ''; position: absolute;
+    width: 24px; height: 24px;
+    border: 2px solid var(--nigeria-green-bright);
+    z-index: 4;
+  }
+  .hero-photo-frame::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+  .hero-photo-frame::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+  .hero-content-left { text-align: left; position: relative; z-index: 1; }
+  @media (max-width: 1000px) { .hero-content-left { text-align: center; } }
+  .hero-content-left .johnson-box { margin-left: 0; margin-right: 0; }
+  @media (max-width: 1000px) { .hero-content-left .johnson-box { margin: 0 auto 40px; } }
+  .hero-flag {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid var(--nigeria-green-bright);
+    border-radius: 2px;
+    font-family: var(--font-display); font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--nigeria-green-bright);
+    margin-bottom: 20px;
+  }
+  .hero-flag::before {
+    content: ''; display: inline-block;
+    width: 18px; height: 12px;
+    background: linear-gradient(to right, var(--nigeria-green) 0%, var(--nigeria-green) 33%, var(--white) 33%, var(--white) 66%, var(--nigeria-green) 66%);
+  }
+
+  /* Section inline photos */
+  .inline-photo {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border);
+  }
+  .inline-photo::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.6));
+    pointer-events: none;
+  }
+  .inline-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s var(--ease);
+  }
+  .inline-photo:hover img { transform: scale(1.06); }
+  .inline-photo .tag {
+    position: absolute; bottom: 16px; left: 16px; z-index: 3;
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 0.2em;
+    color: var(--nigeria-green-bright);
+    text-transform: uppercase;
+  }
+
+  /* Kids showcase */
+  .kids-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 48px;
+  }
+  @media (max-width: 800px) { .kids-strip { grid-template-columns: repeat(2, 1fr); } }
+  .kids-strip .inline-photo { aspect-ratio: 3/4; }
+  .kids-strip .inline-photo:nth-child(2) { transform: translateY(24px); }
+  .kids-strip .inline-photo:nth-child(4) { transform: translateY(24px); }
+  @media (max-width: 800px) { .kids-strip .inline-photo { transform: none !important; } }
+</style>
+</head>
+<body>
+
+<div id="nav-slot"></div>
+
+<!-- =========== HERO =========== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-split">
+      <div class="hero-content-left">
+        <div class="hero-flag reveal">Born in Lagos · Fighting out of Maryland</div>
+
+        <h1 class="hero-headline reveal reveal-delay-1" style="font-size:clamp(2.25rem,6vw,5rem);text-align:left;">
+          Most people will never train at a <span class="accent">UFC fighter-owned</span> academy.<br/>
+          <span style="color:var(--white)">You can.</span>
+        </h1>
+
+        <p class="hero-sub reveal reveal-delay-2" style="margin-left:0;text-align:left;">
+          Southern Maryland has never had access to this level — until now. One active UFC fighter. One academy he built from the ground up. One complete Mixed Martial Arts program open to every adult and child. <span style="color:var(--nigeria-green-bright);font-weight:600;">Your first 30 days are completely free.</span>
+        </p>
+
+        <div class="reveal reveal-delay-3" style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="#trial" class="btn btn-blood btn-lg pulse btn-arrow">Yes — I Want My 30 Days Free</a>
+          <a href="about.html" class="btn btn-ghost btn-lg">Meet Sodiq</a>
+        </div>
+
+        <p class="hero-micro reveal reveal-delay-3" style="margin-left:0;text-align:left;">No credit card. No experience required. Free tour, free private lesson, 30 days of unlimited MMA.</p>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="hero-photo-frame">
+          <div class="hero-photo">
+            <img src="assets/images/sodiq-ufc-celebration-nigeria.jpg" alt="Sodiq 'Super' Yusuff — UFC fighter celebrating in the Octagon wearing a green Nigerian headband and Nigerian flag fight shorts" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CREDIBILITY BAR =========== -->
+<section class="cred-bar">
+  <div class="container">
+    <div class="cred-grid">
+      <div class="cred-item reveal"><span class="cred-icon">★</span><span><strong>Active UFC Fighter</strong>Active Competitor</span></div>
+      <div class="cred-item reveal reveal-delay-1"><span class="cred-icon">🎬</span><span><strong>Disney Voice Actor</strong>Iwaju on Disney+</span></div>
+      <div class="cred-item reveal reveal-delay-1"><span class="cred-icon">📱</span><span><strong>1.6M TikTok</strong>Super Squad Audience</span></div>
+      <div class="cred-item reveal reveal-delay-2"><span class="cred-icon">8+</span><span><strong>Years Coaching</strong>Kids & Adults</span></div>
+      <div class="cred-item reveal reveal-delay-2"><span class="cred-icon">🏆</span><span><strong>Trained by Lloyd Irvin</strong>UFC Hall of Fame Coach</span></div>
+      <div class="cred-item reveal reveal-delay-3"><span class="cred-icon">MD</span><span><strong>Southern Maryland's</strong>Premier MMA Academy</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PROBLEM — PARENTS =========== -->
+<section class="section">
+  <div class="container-narrow">
+    <div class="sec-head-left reveal">
+      <div class="kicker">For Parents</div>
+      <h2 class="display-2">If you have a child between 2 and 17, read this before you sign up anywhere else.</h2>
+    </div>
+    <div class="prose reveal reveal-delay-1">
+      <p>Most martial arts schools in this area are run by people who have never competed at a high level. They are good people. But there is a significant difference between someone who has studied the craft and someone who has been tested by it on the biggest stage in the world.</p>
+      <p>Your child does not just need martial arts instruction. They need a coach who has actually lived what they are teaching. Someone who knows what real pressure feels like. Someone who earned their credentials not in a classroom — but under the lights, in front of a crowd, against the best competition on the planet.</p>
+      <p class="strong"><span class="highlight">That coach now has a school four miles from your front door.</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =========== PROBLEM — ADULTS =========== -->
+<section class="section">
+  <div class="container-narrow">
+    <div class="sec-head-left reveal">
+      <div class="kicker">For Adults</div>
+      <h2 class="display-2">You already know you should be training. Here is the only question that matters.</h2>
+    </div>
+    <div class="prose reveal reveal-delay-1">
+      <p class="strong" style="color:var(--nigeria-green-bright);font-family:var(--font-display);font-size:1.5rem;text-transform:uppercase;letter-spacing:0.02em;">Who are you learning from?</p>
+      <p>There is no shortage of martial arts gyms in Southern Maryland. There is a severe shortage of gyms where the person teaching you has competed at the UFC level. Where the techniques you are drilling are the same ones being used in the Octagon this weekend. Where the standard is not casual — it is serious, structured, and built around real results.</p>
+      <p class="strong"><span class="highlight">That gym now exists.</span> And your first 30 days are free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== ORIGIN STORY =========== -->
+<section class="section" style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="grid-2" style="align-items:center;gap:64px;">
+      <div class="reveal">
+        <div class="kicker">The Origin Story</div>
+        <h2 class="display-2 mb-md">From Lagos, Nigeria to the UFC Octagon. Now building champions in your backyard.</h2>
+        <div class="prose">
+          <p>Sodiq Yusuff did not have an easy path. He came to America from Lagos, Nigeria at nine years old. No language. No connections. No roadmap. Just a kid trying to figure out a country that was not built for him. He got bullied. He found wrestling. And then something clicked that never turned off.</p>
+          <p>His mother did not know he was competing. He fought <span class="highlight">eleven amateur fights</span> before she ever watched. He was working at Pizza Hut, attending Bowie State, trying to make his mother happy while secretly chasing a dream that everyone around him thought was impossible.</p>
+          <p>Then Master Lloyd Irvin — UFC Hall of Fame coach — called.</p>
+          <p>He earned his UFC contract on Dana White's Contender Series. He made his UFC debut in Australia — <span class="highlight">one week after learning his older brother Tope had died in Nigeria.</span> His mother had hidden the news to protect his preparation. He won by first-round knockout. He dedicated it to Tope.</p>
+          <p>Since then he has competed on UFC 300. He has earned Fight of the Night. He has voiced a character in Disney's <em>Iwaju</em>. He has built a TikTok following of 1.6 million people.</p>
+          <p class="strong">And now — for the first time in the history of Southern Maryland — an active UFC fighter has opened his own academy here. Not to visit. Not to hold a one-day seminar. <span class="highlight">To stay. To teach. To build.</span></p>
+          <a href="about.html" class="btn btn-ghost btn-arrow mt-md">Read Sodiq's Full Story</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="inline-photo" style="aspect-ratio:3/4;">
+          <img src="assets/images/sodiq-ufc-flex-portrait.jpg" alt="Sodiq Yusuff UFC portrait — flexing in Octagon, UFC fight gloves, Nigerian flag fight shorts" loading="lazy" />
+          <span class="tag">Lagos → UFC 300</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== STATS =========== -->
+<section class="section-sm" style="padding-top:0;">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><span class="stat-number" data-count="13">0</span><span class="stat-label">UFC / Pro Wins</span></div>
+      <div class="stat"><span class="stat-number" data-count="9">0</span><span class="stat-label">Amateur — Undefeated</span></div>
+      <div class="stat"><span class="stat-number" data-count="1.6" data-suffix="M" data-decimals="1">0</span><span class="stat-label">TikTok Followers</span></div>
+      <div class="stat"><span class="stat-number" data-count="100" data-prefix="$" data-suffix="K+">0</span><span class="stat-label">UFC Bonuses Earned</span></div>
+      <div class="stat"><span class="stat-number" data-count="8" data-suffix="+">0</span><span class="stat-label">Years Coaching</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== SCHOOL =========== -->
+<section class="section">
+  <div class="container-narrow">
+    <div class="sec-head-left reveal">
+      <div class="kicker">The School</div>
+      <h2 class="display-2">He is not just the name on the door. He is on the mat every single day.</h2>
+    </div>
+    <div class="prose reveal reveal-delay-1">
+      <p>You already know the story. A famous name gets attached to a gym. They show up for the grand opening photo, maybe a seminar once or twice a year, and that is the last you see of them. Meanwhile, someone else is actually running the classes.</p>
+      <p class="strong"><span class="highlight">That is not what this is.</span></p>
+      <p>Sodiq Yusuff is present. Every day. He is on this mat teaching classes, working with students, correcting technique, and building relationships with the people in this program. When you train at Sodiq Yusuff MMA, you are training with Sodiq Yusuff.</p>
+      <p>This is a man who fights the world's best fighters for a living. Every technique on this mat has been tested under real pressure. The same footwork, the same striking fundamentals, the same mental conditioning he carries into the Octagon — that is what gets passed down to every student, at every level, every single class.</p>
+      <p class="strong">Southern Maryland has never had access to instruction like this. It does now. And it starts with 30 days free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== OFFER =========== -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="offer reveal">
+      <h2 class="offer-head">Here is everything you get when you start your 30-day free trial</h2>
+      <ul class="offer-list">
+        <li><span>A <strong>full tour of the facility</strong> so you know exactly where you are and what you are walking into before your first class.</span></li>
+        <li><span>A <strong>free private lesson</strong> with Sodiq or one of our coaches — one on one, focused entirely on you, your goals, and where you are starting from.</span></li>
+        <li><span><strong>30 full days of unlimited Mixed Martial Arts classes</strong> to experience the complete program before making any decision whatsoever.</span></li>
+        <li><span><strong>ADULT BONUS:</strong> Sodiq's ebook — <em>The Mindset of a Champion: How to Build Unstoppable Confidence in All Areas of Your Life.</em></span></li>
+        <li><span><strong>KIDS BONUS:</strong> A personal video from Sodiq — <em>The Number One Secret to Increasing a Child's Confidence.</em></span></li>
+      </ul>
+      <p style="margin-top:28px;color:var(--text-dim);font-size:0.95rem;">And if you are the type of person who just wants to skip straight to the good part and jump into your first class on day one — we love that. Just let us know when you fill out the form below and we will have you on the mat as soon as you walk through the door. <strong style="color:var(--white);">However you want to start your 30 days, we will meet you there.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PROGRAMS SNAPSHOT =========== -->
+<section class="section" style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">Programs</div>
+      <h2 class="display-2">One academy. A program for every member of your family.</h2>
+    </div>
+    <div class="grid-3">
+      <div class="program reveal">
+        <div class="program-age">All Ages · All Levels</div>
+        <h3 class="program-title">The Prospect Program</h3>
+        <p class="program-desc">This is where every new student begins. Structured, beginner-friendly, and designed to give you a real foundation from day one.</p>
+        <a href="programs.html#prospect" class="post-link">Learn More →</a>
+      </div>
+      <div class="program reveal reveal-delay-1">
+        <div class="program-age">Ages 2–4</div>
+        <h3 class="program-title">Parent & Me</h3>
+        <p class="program-desc">Led by Coach Jazmine — 22 years with young children. Your toddler learns movement, listening, and coordination while you train right alongside them.</p>
+        <a href="programs.html#parent-me" class="post-link">Learn More →</a>
+      </div>
+      <div class="program reveal reveal-delay-2">
+        <div class="program-age">Ages 4–7</div>
+        <h3 class="program-title">Little Ninjas</h3>
+        <p class="program-desc">Discipline disguised as fun. Kids leave every class walking taller, listening better, and wanting to come back.</p>
+        <a href="programs.html#little-ninjas" class="post-link">Learn More →</a>
+      </div>
+      <div class="program reveal">
+        <div class="program-age">Ages 7–12</div>
+        <h3 class="program-title">Juniors</h3>
+        <p class="program-desc">Real technique. Real confidence. Real character development. The program that changes how a child carries themselves.</p>
+        <a href="programs.html#juniors" class="post-link">Learn More →</a>
+      </div>
+      <div class="program reveal reveal-delay-1">
+        <div class="program-age">Ages 13–17</div>
+        <h3 class="program-title">Teens</h3>
+        <p class="program-desc">Teenagers need more than a hobby. They need identity and direction. This program gives them both — with peers who are working toward something real.</p>
+        <a href="programs.html#teens" class="post-link">Learn More →</a>
+      </div>
+      <div class="program reveal reveal-delay-2">
+        <div class="program-age">Ages 18+</div>
+        <h3 class="program-title">Adults</h3>
+        <p class="program-desc">Fitness. Self-defense. Stress relief. Community. No experience required. Real instruction. Results you will feel inside and outside the gym.</p>
+        <a href="programs.html#adults" class="post-link">Learn More →</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="programs.html" class="btn btn-primary btn-arrow">See Full Program Details</a>
+    </div>
+
+    <!-- Kids strip — action shots -->
+    <div class="kids-strip">
+      <div class="inline-photo reveal"><img src="assets/images/kids-class-30-day-trial.jpg" alt="Young student training MMA pad work with Sodiq at the Waldorf academy" loading="lazy" /><span class="tag">Little Ninjas</span></div>
+      <div class="inline-photo reveal reveal-delay-1"><img src="assets/images/kids-wrestling-always-fighting.jpg" alt="Kids grappling and wrestling at Super Sodiq MMA" loading="lazy" /><span class="tag">Juniors</span></div>
+      <div class="inline-photo reveal reveal-delay-2"><img src="assets/images/kids-stance-training.jpg" alt="Young students in MMA stance during class" loading="lazy" /><span class="tag">Age 4–7</span></div>
+      <div class="inline-photo reveal reveal-delay-3"><img src="assets/images/kids-girls-wrestling-believe.jpg" alt="Girls wrestling class at Sodiq Yusuff MMA in front of I Believe In Myself banner" loading="lazy" /><span class="tag">I Believe</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== REVIEWS =========== -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">Google Reviews</div>
+      <h2 class="display-2">Every one of them five stars.</h2>
+    </div>
+    <div class="reviews">
+      <div class="review reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Sodiq is one of the main reasons I started in martial arts. I was terrified to begin training but the nicest guy in the room ended up being a top UFC fighter and he encouraged me every single day. World class coach and world class person."</p>
+        <p class="review-author"><strong>Evan Vucci</strong></p>
+      </div>
+      <div class="review reveal reveal-delay-1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"
