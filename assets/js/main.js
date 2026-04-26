@@ -158,8 +158,8 @@
 
     const COOLDOWN_KEY = 'sy_exit_popup_seen_at';
     const COOLDOWN_MS = 24 * 60 * 60 * 1000;
-    const FALLBACK_MS = 90 * 1000;
-    const MOBILE_DELAY_MS = 45 * 1000;
+    const FALLBACK_MS = 55 * 1000;
+    const MOBILE_DELAY_MS = 25 * 1000;
     const SCROLL_TRIGGER_PCT = 0.6;
 
     try {
