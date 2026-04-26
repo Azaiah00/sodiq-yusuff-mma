@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css?v=5" />
+<link rel="stylesheet" href="assets/css/styles.css?v=6" />
 <link rel="icon" type="image/png" href="assets/images/super-sodiq-logo.png" />
 <style>
   .about-hero-split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
@@ -28,7 +28,7 @@
   .about-hero-photo::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
   .about-hero-photo::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
   .about-hero-photo img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+    width: 100%; height: 100%; object-fit: contain; background: var(--bg-3);
   }
   .story-photo {
     position: relative; aspect-ratio: 16/10;
@@ -40,7 +40,7 @@
     background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.75));
     pointer-events: none;
   }
-  .story-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .story-photo img { width: 100%; height: 100%; object-fit: contain; background: var(--bg-3); }
   .story-photo .tag {
     position: absolute; bottom: 16px; left: 20px; z-index: 3;
     font-family: var(--font-display); font-size: 11px;
@@ -297,7 +297,7 @@
 </section>
 
 <div id="footer-slot"></div>
-<script src="assets/js/partials.js?v=5"></script>
-<script src="assets/js/main.js?v=5"></script>
+<script src="assets/js/partials.js?v=6"></script>
+<script src="assets/js/main.js?v=6"></script>
 </body>
 </html>
