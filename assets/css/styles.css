@@ -178,6 +178,108 @@ ul { list-style: none; }
   letter-spacing: -0.02em;
   clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
 }
+.logo-img {
+  width: 44px; height: 44px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(0, 179, 104, 0.4));
+  transition: filter 0.3s, transform 0.3s var(--ease);
+}
+.logo:hover .logo-img { transform: rotate(-8deg) scale(1.05); filter: drop-shadow(0 0 18px rgba(0, 255, 122, 0.6)); }
+.footer-logo .logo-img { width: 48px; height: 48px; }
+
+/* ============ COACH/CREDIT BADGES ============ */
+.coach-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 28px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-bright);
+  margin: 32px 0;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 700px) {
+  .coach-card { grid-template-columns: 1fr; text-align: center; }
+}
+.coach-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 0% 50%, rgba(0,135,81,0.08), transparent 60%);
+  pointer-events: none;
+}
+.coach-card-photo {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--nigeria-green-bright);
+  box-shadow: 0 0 30px rgba(0, 179, 104, 0.3);
+  background: var(--bg-3);
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 700px) { .coach-card-photo { margin: 0 auto; } }
+.coach-card-photo img { width: 100%; height: 100%; object-fit: cover; }
+.coach-card-content { position: relative; z-index: 1; }
+.coach-card-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--nigeria-green-bright);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.coach-card-kicker img {
+  width: 28px; height: 28px;
+  object-fit: contain;
+}
+.coach-card-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.coach-card-title {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.coach-card-content p { font-size: 0.95rem; color: var(--text-dim); line-height: 1.55; }
+
+/* ============ LOGO TILE / WATERMARK ============ */
+.logo-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: radial-gradient(circle, rgba(0,135,81,0.15), transparent 70%);
+  border-radius: 50%;
+}
+.logo-tile img {
+  width: 80px; height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(0, 179, 104, 0.5));
+  animation: logoPulse 3s ease-in-out infinite;
+}
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(0, 179, 104, 0.5)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(0, 255, 122, 0.7)); }
+}
+
+.logo-watermark {
+  position: absolute;
+  top: 24px; right: 24px;
+  width: 72px; height: 72px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+.logo-watermark img { width: 100%; height: 100%; object-fit: contain; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a {
   font-size: 14px;
@@ -977,110 +1079,4 @@ ul { list-style: none; }
 .post-meta .cat { color: var(--nigeria-green-bright); }
 .post-body { padding: 24px; flex: 1; }
 .post-title {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  line-height: 1.2;
-  color: var(--white);
-  margin-bottom: 12px;
-  letter-spacing: 0.01em;
-}
-.post-excerpt { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; }
-.post-link {
-  display: inline-block;
-  margin-top: 16px;
-  font-family: var(--font-display);
-  font-size: 12px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--nigeria-green-bright);
-  border-bottom: 1px solid var(--nigeria-green-bright);
-  padding-bottom: 2px;
-}
-.post-featured {
-  border: 1px solid var(--nigeria-green);
-  background:
-    linear-gradient(135deg, rgba(0, 135, 81, 0.08), transparent 60%),
-    var(--surface);
-  padding: 48px;
-  margin-bottom: 48px;
-}
-.post-featured .post-title { font-size: clamp(1.75rem, 3vw, 2.5rem); }
-
-/* ============ MEDIA CARDS ============ */
-.media-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 28px;
-  transition: all 0.3s var(--ease);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.media-card:hover { border-color: var(--nigeria-green-bright); transform: translateY(-4px); }
-.media-outlet {
-  font-family: var(--font-display);
-  font-size: 14px;
-  letter-spacing: 0.15em;
-  color: var(--nigeria-green-bright);
-  text-transform: uppercase;
-}
-.media-card h4 {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--white);
-  letter-spacing: 0.01em;
-  line-height: 1.3;
-}
-.media-card p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.5; }
-
-/* ============ QUOTES ============ */
-.pullquote {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  color: var(--white);
-  padding: 48px 0;
-  text-align: center;
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.pullquote::before {
-  content: '"';
-  font-size: clamp(4rem, 8vw, 7rem);
-  line-height: 1;
-  color: var(--nigeria-green-bright);
-  opacity: 0.4;
-  display: block;
-  margin-bottom: -20px;
-}
-
-/* ============ UTILITY SPACERS ============ */
-.mt-sm { margin-top: 16px; }
-.mt-md { margin-top: 24px; }
-.mt-lg { margin-top: 48px; }
-.mb-sm { margin-bottom: 16px; }
-.mb-md { margin-bottom: 24px; }
-.mb-lg { margin-bottom: 48px; }
-
-/* ============ RESPONSIVE TWEAKS ============ */
-@media (max-width: 700px) {
-  .section { padding: 60px 0; }
-  .offer, .form-card, .post-featured { padding: 28px 20px; }
-  .program { padding: 28px 20px; }
-  .footer { padding: 60px 0 24px; }
-}
-
-/* ============ ACCESSIBILITY ============ */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  html { scroll-behavior: auto; }
-}
-:focus-visible { outline: 2px solid var(--nigeria-green-bright); outline-offset: 2px; }
-::selection { background: var(--nigeria-green); color: var(--white); }
+  font-family: var(-

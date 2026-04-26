@@ -6,8 +6,8 @@ const NAV_HTML = `
 <header class="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo" aria-label="Sodiq Yusuff MMA Home">
-      <span class="logo-mark">SY</span>
-      <span>Super<span style="color:var(--nigeria-green-bright)">MMA</span></span>
+      <img src="assets/images/logo-super-sodiq-green.jpg" alt="Super Sodiq MMA" class="logo-img" />
+      <span>Super<span style="color:var(--nigeria-green-bright)">Sodiq</span> MMA</span>
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
@@ -31,7 +31,7 @@ const FOOTER_HTML = `
     <div class="footer-grid">
       <div>
         <div class="footer-logo">
-          <span class="logo-mark">SY</span>
+          <img src="assets/images/logo-super-sodiq-green.jpg" alt="Super Sodiq MMA" class="logo-img" />
           <span>Sodiq "Super" Yusuff MMA</span>
         </div>
         <p>Southern Maryland's only UFC Fighter-owned Mixed Martial Arts academy. From the Octagon to your community.</p>
@@ -72,7 +72,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const navSlot = document.getElementById('nav-slot');
   const footSlot = document.getElementById('footer-slot');
   if (navSlot) navSlot.innerHTML = NAV_HTML;
-  if (footSlot) footSlot.innerHTML = FOOTER_HTML;
-  // Dispatch custom event so main.js can re-run nav setup
-  document.dispatchEvent(new Event('partials:loaded'));
-});
+  if (footSlot) footSlot.innerHTML = FOOTER
