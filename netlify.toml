@@ -5,7 +5,7 @@
   publish = "."
   command = ""
 
-# Security + caching headers
+# Security headers (everything)
 [[headers]]
   for = "/*"
   [headers.values]
@@ -14,17 +14,30 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+# Images can cache for a year — they don't change
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# CSS and JS — short cache, must revalidate (1 hour)
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# HTML — always revalidate
 [[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Redirect clean URLs (optional — matches .html if not found)
+# Redirect clean URLs
 [[redirects]]
   from = "/home"
   to = "/index.html"
@@ -34,6 +47,3 @@
   from = "/about-sodiq"
   to = "/about.html"
   status = 301
-
-# Form handling fallback — if you use Netlify Forms instead of GoHighLevel,
-# add `netlify` attribute to each <form> tag.
