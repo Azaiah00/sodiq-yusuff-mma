@@ -67,9 +67,10 @@ const FOOTER_HTML = `
   </div>
 </footer>`;
 
-// Inject on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   const navSlot = document.getElementById('nav-slot');
   const footSlot = document.getElementById('footer-slot');
   if (navSlot) navSlot.innerHTML = NAV_HTML;
-  if (footSlot) footSlot.innerHTML = FOOTER
+  if (footSlot) footSlot.innerHTML = FOOTER_HTML;
+  document.dispatchEvent(new Event('partials:loaded'));
+});
