@@ -8,19 +8,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css?v=6" />
+<link rel="stylesheet" href="assets/css/styles.css?v=7" />
 <link rel="icon" type="image/png" href="assets/images/super-sodiq-logo.png" />
 <style>
   .program-banner {
     position: relative;
-    aspect-ratio: 4/3;
+    aspect-ratio: 9/16;
     overflow: hidden;
-    margin: -56px -56px 32px;
-    border-bottom: 2px solid var(--nigeria-green-bright);
+    margin: -56px auto 32px;
+    border: 1px solid var(--nigeria-green-bright);
     background: var(--bg-3);
-    max-height: 480px;
+    max-width: 360px;
+    border-radius: 4px;
   }
-  @media (max-width: 700px) { .program-banner { margin: -28px -20px 24px; aspect-ratio: 4/3; } }
+  @media (max-width: 700px) { .program-banner { margin: -28px auto 24px; max-width: 280px; } }
   .program-banner img { width: 100%; height: 100%; object-fit: contain; background: var(--bg-3); }
   .program-banner::after {
     content: ''; position: absolute; inset: 0;
@@ -251,7 +252,7 @@
 </section>
 
 <div id="footer-slot"></div>
-<script src="assets/js/partials.js?v=6"></script>
-<script src="assets/js/main.js?v=6"></script>
+<script src="assets/js/partials.js?v=7"></script>
+<script src="assets/js/main.js?v=7"></script>
 </body>
 </html>
