@@ -159,22 +159,13 @@
 
 
 
-  const initAll = () => {
-    setupNav();
-    setupReveals();
-    setupCounters();
-    setupTabs();
-    setupAnchors();
-    setupForms();
-    setupParallax();
-  };
+  // ============================================================
+  // EXIT-INTENT POPUP
+  // ============================================================
+  const setupExitPopup = () => {
+    const popup = document.getElementById('exitPopup');
+    if (!popup) return;
 
-  // Run on DOMContentLoaded and again after partials are injected
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAll);
-  } else {
-    initAll();
-  }
-  document.addEventListener('partials:loaded', initAll);
-
-})();
+    const COOLDOWN_KEY = 'sy_exit_popup_seen_at';
+    const COOLDOWN_MS = 24 * 60 * 60 * 1000; // 24 hours
+    const FALLBACK_MS = 90 * 1000;            // 90s 
