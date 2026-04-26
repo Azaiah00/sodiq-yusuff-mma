@@ -167,5 +167,130 @@
     if (!popup) return;
 
     const COOLDOWN_KEY = 'sy_exit_popup_seen_at';
-    const COOLDOWN_MS = 24 * 60 * 60 * 1000; // 24 hours
-    const FALLBACK_MS = 90 * 1000;            // 90s 
+    const COOLDOWN_MS = 24 * 60 * 60 * 1000;
+    const FALLBACK_MS = 90 * 1000;
+    const MOBILE_DELAY_MS = 45 * 1000;
+    const SCROLL_TRIGGER_PCT = 0.6;
+
+    try {
+      const last = parseInt(localStorage.getItem(COOLDOWN_KEY) || '0', 10);
+      if (last && (Date.now() - last) < COOLDOWN_MS) return;
+    } catch (e) {}
+
+    let opened = false;
+    const isMobile = window.matchMedia('(max-width: 900px)').matches || ('ontouchstart' in window);
+
+    const open = () => {
+      if (opened) return;
+      opened = true;
+      popup.classList.add('is-open');
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      cleanup();
+      setTimeout(() => {
+        const firstInput = popup.querySelector('input');
+        if (firstInput) { try { firstInput.focus(); } catch(e) {} }
+      }, 400);
+    };
+
+    const close = () => {
+      popup.classList.remove('is-open');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch(e) {}
+    };
+
+    const onMouseLeave = (e) => {
+      if (e.clientY <= 0 && (e.relatedTarget === null || e.relatedTarget === undefined)) {
+        open();
+      }
+    };
+
+    let maxScroll = 0;
+    let scrolledPastThreshold = false;
+    const onScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? scrollTop / docHeight : 0;
+      if (pct > SCROLL_TRIGGER_PCT) scrolledPastThreshold = true;
+      if (scrolledPastThreshold && scrollTop < maxScroll - 80) {
+        open();
+      }
+      if (scrollTop > maxScroll) maxScroll = scrollTop;
+    };
+
+    const mobileTimer = setTimeout(open, MOBILE_DELAY_MS);
+    const fallbackTimer = setTimeout(open, FALLBACK_MS);
+
+    function cleanup() {
+      document.removeEventListener('mouseleave', onMouseLeave);
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(mobileTimer);
+      clearTimeout(fallbackTimer);
+    }
+
+    if (!isMobile) {
+      document.addEventListener('mouseleave', onMouseLeave);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    popup.querySelectorAll('[data-exit-close]').forEach(el => {
+      el.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && popup.classList.contains('is-open')) close();
+    });
+
+    const form = document.getElementById('exitPopupForm');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        if (form.getAttribute('action')) return;
+        e.preventDefault();
+        const data = {
+          first_name: form.first_name.value.trim(),
+          phone: form.phone.value.trim(),
+          email: form.email.value.trim(),
+          program: form.program.value,
+          captured_at: new Date().toISOString(),
+          source: 'exit-intent-popup'
+        };
+        if (!data.first_name || !data.phone || !data.email || !data.program) {
+          alert('Please fill out all fields so we can reserve your spot.');
+          return;
+        }
+        try {
+          const existing = JSON.parse(localStorage.getItem('sy_leads') || '[]');
+          existing.push(data);
+          localStorage.setItem('sy_leads', JSON.stringify(existing));
+        } catch(e) {}
+        try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch(e) {}
+        const params = new URLSearchParams({
+          first_name: data.first_name,
+          email: data.email,
+          phone: data.phone,
+          program: data.program
+        });
+        window.location.href = 'thank-you.html?' + params.toString();
+      });
+    }
+  };
+
+  const initAll = () => {
+    setupNav();
+    setupReveals();
+    setupCounters();
+    setupTabs();
+    setupAnchors();
+    setupForms();
+    setupParallax();
+    setupExitPopup();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+  document.addEventListener('partials:loaded', initAll);
+
+})();

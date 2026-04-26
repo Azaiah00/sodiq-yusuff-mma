@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css?v=8" />
+<link rel="stylesheet" href="assets/css/styles.css?v=9" />
 <link rel="icon" type="image/png" href="assets/images/super-sodiq-logo.png" />
 <style>
   /* Home-specific: split hero with cinematic photo */
@@ -441,4 +441,34 @@
 <div id="footer-slot"></div>
 
 <!-- ========== EXIT-INTENT POPUP ========== -->
-<div class="exit-popup" id="exitPopup" aria-hidden="true" role
+<div class="exit-popup" id="exitPopup" aria-hidden="true" role="dialog" aria-labelledby="exitPopupTitle">
+  <div class="exit-popup__backdrop" data-exit-close></div>
+  <div class="exit-popup__card" role="document">
+    <button class="exit-popup__close" type="button" aria-label="Close" data-exit-close>&times;</button>
+    <div class="exit-popup__inner">
+      <p class="exit-popup__kicker">Wait — Before You Go</p>
+      <h2 class="exit-popup__title" id="exitPopupTitle">Claim Your <span>30 Days FREE</span> at Sodiq Yusuff MMA</h2>
+      <p class="exit-popup__lede">No credit card. No commitment. Just show up — we will have everything ready for you.</p>
+      <form class="exit-popup__form" id="exitPopupForm" action="" method="POST" novalidate>
+        <div class="exit-popup__row">
+          <input type="text" name="first_name" placeholder="First Name" required autocomplete="given-name" />
+          <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
+        </div>
+        <input type="email" name="email" placeholder="Email Address" required autocomplete="email" />
+        <select name="program" required>
+          <option value="">Who is this trial for?</option>
+          <option value="adult">Adult (16+)</option>
+          <option value="kid">Kid (5–15)</option>
+          <option value="both">Both — Family</option>
+        </select>
+        <button type="submit" class="exit-popup__submit">Claim My Free 30 Days &rarr;</button>
+        <p class="exit-popup__trust">No credit card &middot; No commitment &middot; Cancel anytime</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/partials.js?v=9"></script>
+<script src="assets/js/main.js?v=9"></script>
+</body>
+</html>
