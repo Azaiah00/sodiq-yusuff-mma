@@ -6,7 +6,7 @@ const NAV_HTML = `
 <header class="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo" aria-label="Sodiq Yusuff MMA Home">
-      <img src="assets/images/logo-super-sodiq-green.jpg" alt="Super Sodiq MMA" class="logo-img" />
+      <img src="assets/images/super-sodiq-logo.png" alt="Super Sodiq MMA" class="logo-img" />
       <span>Super<span style="color:var(--nigeria-green-bright)">Sodiq</span> MMA</span>
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
@@ -31,7 +31,7 @@ const FOOTER_HTML = `
     <div class="footer-grid">
       <div>
         <div class="footer-logo">
-          <img src="assets/images/logo-super-sodiq-green.jpg" alt="Super Sodiq MMA" class="logo-img" />
+          <img src="assets/images/super-sodiq-logo.png" alt="Super Sodiq MMA" class="logo-img" />
           <span>Sodiq "Super" Yusuff MMA</span>
         </div>
         <p>Southern Maryland's only UFC Fighter-owned Mixed Martial Arts academy. From the Octagon to your community.</p>

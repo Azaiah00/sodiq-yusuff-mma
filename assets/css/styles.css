@@ -179,13 +179,13 @@ ul { list-style: none; }
   clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
 }
 .logo-img {
-  width: 44px; height: 44px;
+  width: 52px; height: 52px;
   object-fit: contain;
   filter: drop-shadow(0 0 12px rgba(0, 179, 104, 0.4));
   transition: filter 0.3s, transform 0.3s var(--ease);
 }
 .logo:hover .logo-img { transform: rotate(-8deg) scale(1.05); filter: drop-shadow(0 0 18px rgba(0, 255, 122, 0.6)); }
-.footer-logo .logo-img { width: 48px; height: 48px; }
+.footer-logo .logo-img { width: 60px; height: 60px; }
 
 /* ============ COACH/CREDIT BADGES ============ */
 .coach-card {
@@ -256,12 +256,12 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 48px;
   background: radial-gradient(circle, rgba(0,135,81,0.15), transparent 70%);
   border-radius: 50%;
 }
 .logo-tile img {
-  width: 80px; height: 80px;
+  width: 220px; height: 220px;
   object-fit: contain;
   filter: drop-shadow(0 0 20px rgba(0, 179, 104, 0.5));
   animation: logoPulse 3s ease-in-out infinite;
