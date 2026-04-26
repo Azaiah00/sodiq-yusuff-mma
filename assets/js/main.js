@@ -1,11 +1,10 @@
-/* Sodiq Yusuff MMA — Main JS
+/* Sodiq Yusuff MMA - Main JS
    Handles: nav toggle, sticky nav, scroll reveals, stat counters,
-            active nav link, tabs, forms, smooth scroll, parallax. */
+            active nav link, tabs, forms, smooth scroll, parallax, exit popup. */
 
 (() => {
   'use strict';
 
-  // -------- NAV setup (runs after partials inject nav) --------
   const setupNav = () => {
     const nav = document.querySelector('.nav');
     const navToggle = document.querySelector('.nav-toggle');
@@ -31,18 +30,15 @@
       onScroll();
     }
 
-    // Active nav link
     const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
     document.querySelectorAll('.nav-links a').forEach(a => {
       const href = (a.getAttribute('href') || '').toLowerCase();
       if (href === page) a.classList.add('active');
     });
 
-    // Year in footer
     document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
   };
 
-  // -------- Scroll reveal --------
   const setupReveals = () => {
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
@@ -59,7 +55,6 @@
     }
   };
 
-  // -------- Stat counter animation --------
   const setupCounters = () => {
     const animateCount = (el) => {
       const target = parseFloat(el.dataset.count);
@@ -91,7 +86,6 @@
     }
   };
 
-  // -------- Tabs --------
   const setupTabs = () => {
     document.querySelectorAll('[data-tabs]:not([data-tabs-init])').forEach(group => {
       group.setAttribute('data-tabs-init', '1');
@@ -107,7 +101,6 @@
     });
   };
 
-  // -------- Smooth anchor scroll with offset --------
   const setupAnchors = () => {
     document.querySelectorAll('a[href^="#"]:not([data-anchor-init])').forEach(a => {
       a.setAttribute('data-anchor-init', '1');
@@ -123,7 +116,6 @@
     });
   };
 
-  // -------- Form placeholder handler --------
   const setupForms = () => {
     document.querySelectorAll('form[data-form]:not([data-form-init])').forEach(form => {
       form.setAttribute('data-form-init', '1');
@@ -132,7 +124,7 @@
         const btn = form.querySelector('button[type="submit"]');
         if (btn) {
           const orig = btn.textContent;
-          btn.textContent = '✓ Form Ready — Connect GoHighLevel';
+          btn.textContent = 'Form Ready - Connect GoHighLevel';
           btn.style.background = 'var(--nigeria-green-bright)';
           btn.disabled = true;
           setTimeout(() => {
@@ -145,26 +137,24 @@
     });
   };
 
-  // -------- Parallax hero (subtle, desktop only) --------
   const setupParallax = () => {
     const heroBg = document.querySelector('.hero-bg');
     if (heroBg && window.matchMedia('(min-width: 900px)').matches && !heroBg.dataset.parallax) {
       heroBg.dataset.parallax = '1';
       window.addEventListener('scroll', () => {
         const y = window.scrollY * 0.3;
-        heroBg.style.transform = `translateY(${y}px)`;
+        heroBg.style.transform = 'translateY(' + y + 'px)';
       }, { passive: true });
     }
   };
-
-
 
   // ============================================================
   // EXIT-INTENT POPUP
   // ============================================================
   const setupExitPopup = () => {
     const popup = document.getElementById('exitPopup');
-    if (!popup) return;
+    if (!popup || popup.dataset.init) return;
+    popup.dataset.init = '1';
 
     const COOLDOWN_KEY = 'sy_exit_popup_seen_at';
     const COOLDOWN_MS = 24 * 60 * 60 * 1000;
@@ -246,11 +236,15 @@
       form.addEventListener('submit', (e) => {
         if (form.getAttribute('action')) return;
         e.preventDefault();
+        const get = (sel) => {
+          const el = form.querySelector(sel);
+          return el ? (el.value || '').trim() : '';
+        };
         const data = {
-          first_name: form.first_name.value.trim(),
-          phone: form.phone.value.trim(),
-          email: form.email.value.trim(),
-          program: form.program.value,
+          first_name: get('[name="first_name"]'),
+          phone: get('[name="phone"]'),
+          email: get('[name="email"]'),
+          program: get('[name="program"]'),
           captured_at: new Date().toISOString(),
           source: 'exit-intent-popup'
         };
