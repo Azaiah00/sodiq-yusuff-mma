@@ -157,8 +157,26 @@
     }
   };
 
+
+  // -------- Brand watermark on every section --------
+  const setupWatermarks = () => {
+    document.querySelectorAll('section:not([data-no-mark])').forEach(s => {
+      if (s.querySelector(':scope > .section-watermark')) return;
+      // Skip if section is too short (< 200px tall)
+      if (s.offsetHeight < 200) return;
+      const mark = document.createElement('img');
+      mark.src = 'assets/images/super-sodiq-logo.png';
+      mark.className = 'section-watermark';
+      mark.alt = '';
+      mark.setAttribute('aria-hidden','true');
+      mark.loading = 'lazy';
+      s.appendChild(mark);
+    });
+  };
+
   const initAll = () => {
     setupNav();
+    setupWatermarks();
     setupReveals();
     setupCounters();
     setupTabs();
