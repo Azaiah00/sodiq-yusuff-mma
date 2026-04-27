@@ -97,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const menu = dropdown.querySelector('.nav-dropdown-menu');
     const trigger = dropdown.querySelector('.nav-dropdown-trigger');
     const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
+    // CRITICAL: parent must be position:relative so absolute menu anchors to it (not body)
+    dropdown.style.position = 'relative';
+    dropdown.style.display = 'inline-block';
 
     const showMenu = () => {
       if (isMobile()) {
@@ -104,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.style.cssText = 'display:block; position:static; min-width:0; box-shadow:none; border:none; background:transparent; padding:0 0 0 16px;';
       } else {
         // Desktop: menu floats absolute over content - cannot affect header layout
-        menu.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:100%; left:0; min-width:220px; background:var(--bg-2); border:1px solid var(--border-bright); border-radius:4px; padding:8px 0; z-index:1000; box-shadow:0 16px 40px rgba(0,0,0,0.6); margin-top:8px;';
+        menu.style.cssText = 'display:flex !important; flex-direction:column; position:absolute; top:100%; left:0; right:auto; min-width:220px; background:#0f1311; border:1px solid #2a302d; border-radius:4px; padding:8px 0; z-index:1000; box-shadow:0 16px 40px rgba(0,0,0,0.6); margin-top:8px;';
       }
     };
     const hideMenu = () => { menu.style.cssText = 'display:none;'; };
