@@ -15,7 +15,9 @@
         navLinks.classList.toggle('open');
         navToggle.setAttribute('aria-expanded', open);
       });
-      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', (e) => {
+        // Don't auto-close hamburger when tapping the Programs dropdown trigger — let it expand the submenu
+        if (a.classList.contains('nav-dropdown-trigger')) return;
         navToggle.classList.remove('open');
         navLinks.classList.remove('open');
       }));
