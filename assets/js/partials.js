@@ -101,20 +101,31 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdown.style.position = 'relative';
     dropdown.style.display = 'inline-block';
 
+    let hideTimer = null;
     const showMenu = () => {
+      clearTimeout(hideTimer);
       if (isMobile()) {
-        // Mobile: menu shows IN the hamburger flow (block/static)
+        // Mobile: menu shows IN the hamburger flow
         menu.style.cssText = 'display:block; position:static; min-width:0; box-shadow:none; border:none; background:transparent; padding:0 0 0 16px;';
       } else {
-        // Desktop: menu floats absolute over content - cannot affect header layout
-        menu.style.cssText = 'display:flex !important; flex-direction:column; position:absolute; top:100%; left:0; right:auto; min-width:220px; background:#0f1311; border:1px solid #2a302d; border-radius:4px; padding:8px 0; z-index:1000; box-shadow:0 16px 40px rgba(0,0,0,0.6); margin-top:8px;';
+        // Desktop: menu floats absolute. NO margin-top — sits flush below trigger so cursor never crosses a gap.
+        // Use top:calc(100% + 0px) and a transparent border-top to extend the hover area upward into the trigger.
+        menu.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:auto; min-width:220px; background:#0f1311; border:1px solid #2a302d; border-radius:4px; padding:14px 0 8px 0; z-index:1000; box-shadow:0 16px 40px rgba(0,0,0,0.6); margin-top:0;';
       }
     };
     const hideMenu = () => { menu.style.cssText = 'display:none;'; };
+    // Hide with grace period — gives 250ms for mouse to re-enter trigger or menu before closing
+    const scheduleHide = () => {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(hideMenu, 250);
+    };
 
-    // Desktop: show on mouseenter, hide on mouseleave
+    // Desktop: show on mouseenter, hide on mouseleave WITH GRACE PERIOD
     dropdown.addEventListener('mouseenter', () => { if (!isMobile()) showMenu(); });
-    dropdown.addEventListener('mouseleave', () => { if (!isMobile()) hideMenu(); });
+    dropdown.addEventListener('mouseleave', () => { if (!isMobile()) scheduleHide(); });
+    // Re-entering the menu cancels the hide timer
+    menu.addEventListener('mouseenter', () => { clearTimeout(hideTimer); });
+    menu.addEventListener('mouseleave', () => { if (!isMobile()) scheduleHide(); });
 
     // Mobile: tap trigger to toggle
     trigger.addEventListener('click', (e) => {
@@ -134,6 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Resize: reset
-    window.addEventListener('resize', hideMenu);
+    window.addEventListener('resize', () => { clearTimeout(hideTimer); hideMenu(); });
   }
 });
