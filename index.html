@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css?v=13" />
+<link rel="stylesheet" href="assets/css/styles.css?v=14" />
 <link rel="icon" type="image/png" href="assets/images/super-sodiq-logo.png" />
 <style>
   /* Home-specific: split hero with cinematic photo */
@@ -112,10 +112,31 @@
   .kids-strip .inline-photo:nth-child(2) { transform: translateY(24px); }
   .kids-strip .inline-photo:nth-child(4) { transform: translateY(24px); }
   @media (max-width: 800px) { .kids-strip .inline-photo { transform: none !important; } }
-  .hero-container-flex { display: flex; flex-direction: column; }
-  /* Mobile: video shows FIRST in hero stack */
+  /* Hero video — its own full-width section, clearly large */
+  .hero-stack { display: contents; }
+  .hero-video-section {
+    padding: 56px 24px 32px;
+    background: var(--bg);
+  }
+  .hero-video-wrap {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    border: 2px solid var(--nigeria-green-bright);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 80px rgba(0,135,81,0.3);
+    background: #000;
+  }
+  .hero-video-wrap iframe {
+    width: 100%; height: 100%; border: 0; display: block;
+  }
   @media (max-width: 1000px) {
-    .hero-video-mobile-top { order: -1; margin: 0 auto 32px !important; }
+    /* On mobile: turn .hero-stack into a flex column, video first */
+    .hero-stack { display: flex; flex-direction: column; }
+    .hero-video-section { order: -1; padding: 24px 16px 0; }
+    .hero { order: 1; }
   }
 </style>
 <style id="exit-popup-critical">
@@ -142,6 +163,8 @@
 
 <div id="nav-slot"></div>
 
+<!-- =========== HERO STACK (hero + video, reorderable on mobile) =========== -->
+<div class="hero-stack">
 <!-- =========== HERO =========== -->
 <section class="hero" data-no-mark>
   <div class="hero-bg"></div>
@@ -178,12 +201,16 @@
       </div>
     </div>
 
-    <!-- Hero Video - shows below split on desktop, ABOVE split on mobile -->
-    <div class="hero-video hero-video-mobile-top reveal">
-      <iframe src="https://www.youtube.com/embed/sva_VGl7E-k?rel=0&modestbranding=1" title="Sodiq Yusuff MMA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-    </div>
   </div>
 </section>
+
+<!-- =========== HERO VIDEO (full-width, shows after hero on desktop) =========== -->
+<section class="hero-video-section">
+  <div class="hero-video-wrap reveal">
+    <iframe src="https://www.youtube.com/embed/sva_VGl7E-k?rel=0&modestbranding=1" title="Sodiq Yusuff MMA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+</div><!-- /.hero-stack -->
 
 <!-- =========== CREDIBILITY BAR =========== -->
 <section class="cred-bar">
@@ -492,8 +519,8 @@
   </div>
 </div>
 
-<script src="assets/js/partials.js?v=13"></script>
-<script src="assets/js/main.js?v=13"></script>
+<script src="assets/js/partials.js?v=14"></script>
+<script src="assets/js/main.js?v=14"></script>
 </body>
 </html>
                                                           

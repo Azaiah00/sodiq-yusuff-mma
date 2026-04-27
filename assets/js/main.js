@@ -1,6 +1,4 @@
-/* Sodiq Yusuff MMA - Main JS
-   Handles: nav toggle, sticky nav, scroll reveals, stat counters,
-            active nav link, tabs, forms, smooth scroll, parallax, exit popup. */
+/* Sodiq Yusuff MMA - Main JS */
 
 (() => {
   'use strict';
@@ -37,6 +35,23 @@
     });
 
     document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+    // Dropdown — mobile tap toggles, desktop hover handled in CSS
+    document.querySelectorAll('.nav-dropdown').forEach(dd => {
+      if (dd.dataset.init) return;
+      dd.dataset.init = '1';
+      const trigger = dd.querySelector('.nav-dropdown-trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', (e) => {
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          e.preventDefault();
+          dd.classList.toggle('open');
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if (!dd.contains(e.target)) dd.classList.remove('open');
+      });
+    });
   };
 
   const setupReveals = () => {
@@ -148,9 +163,7 @@
     }
   };
 
-  // ============================================================
   // EXIT-INTENT POPUP
-  // ============================================================
   const setupExitPopup = () => {
     const popup = document.getElementById('exitPopup');
     if (!popup || popup.dataset.init) return;
