@@ -99,10 +99,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
 
     const showMenu = () => {
-      menu.style.display = isMobile() ? 'block' : 'flex';
-      menu.style.flexDirection = 'column';
+      if (isMobile()) {
+        // Mobile: menu shows IN the hamburger flow (block/static)
+        menu.style.cssText = 'display:block; position:static; min-width:0; box-shadow:none; border:none; background:transparent; padding:0 0 0 16px;';
+      } else {
+        // Desktop: menu floats absolute over content - cannot affect header layout
+        menu.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:100%; left:0; min-width:220px; background:var(--bg-2); border:1px solid var(--border-bright); border-radius:4px; padding:8px 0; z-index:1000; box-shadow:0 16px 40px rgba(0,0,0,0.6); margin-top:8px;';
+      }
     };
-    const hideMenu = () => { menu.style.display = 'none'; };
+    const hideMenu = () => { menu.style.cssText = 'display:none;'; };
 
     // Desktop: show on mouseenter, hide on mouseleave
     dropdown.addEventListener('mouseenter', () => { if (!isMobile()) showMenu(); });
