@@ -105,8 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const showMenu = () => {
       clearTimeout(hideTimer);
       if (isMobile()) {
-        // Mobile: menu shows IN the hamburger flow
-        menu.style.cssText = 'display:block; position:static; min-width:0; box-shadow:none; border:none; background:transparent; padding:0 0 0 16px;';
+        // Mobile: menu shows IN the hamburger flow as a vertical column
+        menu.style.cssText = 'display:flex; flex-direction:column; align-items:flex-start; position:static; min-width:0; box-shadow:none; border:none; background:transparent; padding:8px 0 8px 16px; gap:4px;';
+        // Force each item to display block for safety
+        menu.querySelectorAll('a').forEach(a => { a.style.display = 'block'; a.style.width = '100%'; });
       } else {
         // Desktop: menu floats absolute. NO margin-top — sits flush below trigger so cursor never crosses a gap.
         // Use top:calc(100% + 0px) and a transparent border-top to extend the hover area upward into the trigger.
