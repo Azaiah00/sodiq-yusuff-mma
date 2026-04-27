@@ -11,9 +11,9 @@ const NAV_HTML = `
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <div class="nav-dropdown">
+      <div class="nav-dropdown" data-dropdown>
         <a href="programs.html" class="nav-dropdown-trigger">Programs <span class="nav-caret">\u25BE</span></a>
-        <div class="nav-dropdown-menu" role="menu">
+        <div class="nav-dropdown-menu" role="menu" style="display:none;">
           <a href="parent-and-me.html" role="menuitem">Parent &amp; Me</a>
           <a href="kids.html" role="menuitem">Kids</a>
           <a href="teens.html" role="menuitem">Teens</a>
@@ -90,4 +90,42 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navSlot) navSlot.innerHTML = NAV_HTML;
   if (footSlot) footSlot.innerHTML = FOOTER_HTML;
   document.dispatchEvent(new Event('partials:loaded'));
+
+  // BULLETPROOF DROPDOWN: pure-JS hover (desktop) and click (mobile) — does not rely on CSS
+  const dropdown = document.querySelector('[data-dropdown]');
+  if (dropdown) {
+    const menu = dropdown.querySelector('.nav-dropdown-menu');
+    const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
+
+    const showMenu = () => {
+      menu.style.display = isMobile() ? 'block' : 'flex';
+      menu.style.flexDirection = 'column';
+    };
+    const hideMenu = () => { menu.style.display = 'none'; };
+
+    // Desktop: show on mouseenter, hide on mouseleave
+    dropdown.addEventListener('mouseenter', () => { if (!isMobile()) showMenu(); });
+    dropdown.addEventListener('mouseleave', () => { if (!isMobile()) hideMenu(); });
+
+    // Mobile: tap trigger to toggle
+    trigger.addEventListener('click', (e) => {
+      if (isMobile()) {
+        e.preventDefault();
+        if (menu.style.display === 'none' || menu.style.display === '') {
+          showMenu();
+        } else {
+          hideMenu();
+        }
+      }
+    });
+
+    // Tap outside closes (mobile)
+    document.addEventListener('click', (e) => {
+      if (isMobile() && !dropdown.contains(e.target)) hideMenu();
+    });
+
+    // Resize: reset
+    window.addEventListener('resize', hideMenu);
+  }
 });
