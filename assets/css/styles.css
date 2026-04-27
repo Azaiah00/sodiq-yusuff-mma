@@ -1358,45 +1358,44 @@ html, body { max-width: 100vw; overflow-x: hidden; }
 }
 
 /* ============================================================
-   NAV DROPDOWN (Programs sub-menu)
+   NAV DROPDOWN (Programs sub-menu) — BULLETPROOF DISPLAY:NONE
    ============================================================ */
 .nav-dropdown {
   position: relative;
   display: inline-block;
 }
 .nav-dropdown-trigger {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   cursor: pointer;
 }
 .nav-caret {
-  font-size: 10px;
-  margin-left: 2px;
-  transition: transform 0.2s var(--ease);
+  font-size: 9px;
   display: inline-block;
+  transition: transform 0.2s var(--ease);
+  color: var(--nigeria-green-bright);
 }
 .nav-dropdown:hover .nav-caret,
-.nav-dropdown.open .nav-caret {
-  transform: rotate(180deg);
-}
+.nav-dropdown.open .nav-caret { transform: rotate(180deg); }
+
+/* DEFAULT: dropdown menu HIDDEN with display:none — cannot be overridden */
 .nav-dropdown-menu {
+  display: none !important;
   position: absolute;
-  top: calc(100% + 0px);
+  top: 100%;
   left: 0;
   min-width: 220px;
   background: var(--bg-2);
   border: 1px solid var(--border-bright);
   border-radius: 4px;
-  padding: 10px 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-4px);
-  transition: all 0.2s var(--ease);
-  z-index: 100;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+  padding: 8px 0;
+  z-index: 1000;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+  flex-direction: column;
 }
-/* Invisible bridge between trigger and menu so hover doesn't drop */
+
+/* Invisible 16px bridge under trigger so cursor doesn't lose hover */
 .nav-dropdown::after {
   content: '';
   position: absolute;
@@ -1404,68 +1403,51 @@ html, body { max-width: 100vw; overflow-x: hidden; }
   left: 0;
   right: 0;
   height: 16px;
-  z-index: 99;
+  display: none;
 }
 .nav-dropdown:hover::after { display: block; }
+
+/* Show menu ONLY when hovering the dropdown OR when .open class is set */
 .nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu,
 .nav-dropdown.open .nav-dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  display: flex !important;
 }
+
 .nav-dropdown-menu a {
-  display: block;
-  padding: 10px 18px !important;
+  display: block !important;
+  padding: 12px 20px !important;
   color: var(--text) !important;
   font-family: var(--font-display);
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
   transition: background 0.15s var(--ease), color 0.15s var(--ease);
 }
 .nav-dropdown-menu a:hover {
-  background: var(--bg-3);
+  background: rgba(0, 135, 81, 0.15);
   color: var(--nigeria-green-bright) !important;
 }
 
-/* Mobile: dropdown is hidden by default, shows only when .open is added (via JS tap toggle) */
+/* MOBILE: still display:none by default. Show ONLY on .open (JS tap). Hover disabled. */
 @media (max-width: 900px) {
-  .nav-dropdown {
-    display: block;
-    width: 100%;
-  }
-  .nav-dropdown-trigger {
-    width: 100%;
-    justify-content: space-between;
-  }
+  .nav-dropdown { display: block; width: 100%; }
+  .nav-dropdown-trigger { width: 100%; justify-content: space-between; }
   .nav-dropdown-menu {
     position: static;
-    opacity: 0;
-    visibility: hidden;
-    max-height: 0;
-    overflow: hidden;
-    transform: none;
     box-shadow: none;
     border: none;
     background: transparent;
     padding: 0 0 0 16px;
     min-width: 0;
-    transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.2s ease;
+    box-shadow: none;
   }
-  .nav-dropdown.open .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    max-height: 400px;
-    padding: 8px 0 12px 16px;
-  }
-  .nav-dropdown-menu a {
-    padding: 10px 0 !important;
-    font-size: 14px;
-  }
-  /* Hover doesn't apply on mobile (touch). Caret rotates only when .open. */
-  .nav-dropdown:hover .nav-dropdown-menu { opacity: 0; visibility: hidden; max-height: 0; }
-  .nav-dropdown.open .nav-caret { transform: rotate(180deg); }
+  /* Disable hover-based showing on mobile (touch hover is sticky) */
+  .nav-dropdown:hover .nav-dropdown-menu { display: none !important; }
+  .nav-dropdown:hover::after { display: none; }
+  /* Show only when .open */
+  .nav-dropdown.open .nav-dropdown-menu { display: flex !important; }
+  .nav-dropdown-menu a { padding: 10px 0 !important; font-size: 14px; }
 }
 
 /* ============================================================
