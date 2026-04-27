@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css?v=11" />
+<link rel="stylesheet" href="assets/css/styles.css?v=12" />
 <link rel="icon" type="image/png" href="assets/images/super-sodiq-logo.png" />
 <style>
   /* Home-specific: split hero with cinematic photo */
@@ -112,6 +112,11 @@
   .kids-strip .inline-photo:nth-child(2) { transform: translateY(24px); }
   .kids-strip .inline-photo:nth-child(4) { transform: translateY(24px); }
   @media (max-width: 800px) { .kids-strip .inline-photo { transform: none !important; } }
+  .hero-container-flex { display: flex; flex-direction: column; }
+  /* Mobile: video shows FIRST in hero stack */
+  @media (max-width: 1000px) {
+    .hero-video-mobile-top { order: -1; margin: 0 auto 32px !important; }
+  }
 </style>
 <style id="exit-popup-critical">
 /* Critical popup styles - inline so they cannot be missed by cache */
@@ -140,14 +145,7 @@
 <!-- =========== HERO =========== -->
 <section class="hero" data-no-mark>
   <div class="hero-bg"></div>
-  <div class="container">
-
-    <!-- Johnson Box — FULL WIDTH banner across the top -->
-    <div class="johnson-box reveal" style="max-width:none;margin:0 0 48px;text-align:center;padding:24px 32px;">
-      <strong>Now Enrolling in Waldorf, MD</strong>
-      <p class="johnson-highlight">New Students Train FREE for 30 Days · Limited Spots · No Credit Card Required</p>
-      <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">Active UFC Fighter · 1.6M TikTok · Trained by Lloyd Irvin (UFC Hall of Fame Coach)</p>
-    </div>
+  <div class="container hero-container-flex">
 
     <!-- Split: text on left, poster on right -->
     <div class="hero-split">
@@ -179,6 +177,11 @@
         </div>
       </div>
     </div>
+
+    <!-- Hero Video - shows below split on desktop, ABOVE split on mobile -->
+    <div class="hero-video hero-video-mobile-top reveal">
+      <iframe src="https://www.youtube.com/embed/sva_VGl7E-k?rel=0&modestbranding=1" title="Sodiq Yusuff MMA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
   </div>
 </section>
 
@@ -207,6 +210,9 @@
       <p>Most martial arts schools in this area are run by people who have never competed at a high level. They are good people. But there is a significant difference between someone who has studied the craft and someone who has been tested by it on the biggest stage in the world.</p>
       <p>Your child does not just need martial arts instruction. They need a coach who has actually lived what they are teaching. Someone who knows what real pressure feels like. Someone who earned their credentials not in a classroom — but under the lights, in front of a crowd, against the best competition on the planet.</p>
       <p class="strong"><span class="highlight">That coach now has a school four miles from your front door.</span></p>
+      <div style="margin-top:32px;">
+        <a href="kids.html" class="btn btn-blood btn-lg btn-arrow">Learn More — Kids Program</a>
+      </div>
     </div>
   </div>
 </section>
@@ -486,8 +492,8 @@
   </div>
 </div>
 
-<script src="assets/js/partials.js?v=11"></script>
-<script src="assets/js/main.js?v=11"></script>
+<script src="assets/js/partials.js?v=12"></script>
+<script src="assets/js/main.js?v=12"></script>
 </body>
 </html>
                                                           

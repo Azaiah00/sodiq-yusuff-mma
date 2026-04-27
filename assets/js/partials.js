@@ -1,8 +1,8 @@
 /* Shared nav + footer partials injected into every page.
-   Keeps code DRY — edit here, updates everywhere. */
+   Keeps code DRY - edit here, updates everywhere. */
 
 const NAV_HTML = `
-<div class="announce">Now Enrolling in Waldorf, MD — New Students Train FREE for 30 Days. Limited Spots. No Credit Card Required.</div>
+<div class="announce">Now Enrolling in Waldorf, MD - New Students Train FREE for 30 Days. Limited Spots. No Credit Card Required.</div>
 <header class="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo" aria-label="Sodiq Yusuff MMA Home">
@@ -11,7 +11,15 @@ const NAV_HTML = `
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <a href="programs.html">Programs</a>
+      <div class="nav-dropdown">
+        <a href="programs.html" class="nav-dropdown-trigger">Programs <span class="nav-caret">\u25BE</span></a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="parent-and-me.html" role="menuitem">Parent &amp; Me</a>
+          <a href="kids.html" role="menuitem">Kids</a>
+          <a href="teens.html" role="menuitem">Teens</a>
+          <a href="adults.html" role="menuitem">Adults</a>
+        </div>
+      </div>
       <a href="about.html">About</a>
       <a href="media.html">Media</a>
       <a href="blog.html">Blog</a>
@@ -35,7 +43,7 @@ const FOOTER_HTML = `
           <span>Sodiq "Super" Yusuff MMA</span>
         </div>
         <p>Southern Maryland's only UFC Fighter-owned Mixed Martial Arts academy. From the Octagon to your community.</p>
-        <p class="footer-tag mt-md">From the UFC Octagon to Southern Maryland — Built for Champions at Every Level.</p>
+        <p class="footer-tag mt-md">From the UFC Octagon to Southern Maryland - Built for Champions at Every Level.</p>
       </div>
       <div>
         <h5>Visit</h5>
@@ -48,10 +56,19 @@ const FOOTER_HTML = `
         <p><a href="https://instagram.com/supersodiq" target="_blank" rel="noopener">@supersodiq</a></p>
       </div>
       <div>
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="programs.html">All Programs</a></li>
+          <li><a href="parent-and-me.html">Parent &amp; Me</a></li>
+          <li><a href="kids.html">Kids</a></li>
+          <li><a href="teens.html">Teens</a></li>
+          <li><a href="adults.html">Adults</a></li>
+        </ul>
+      </div>
+      <div>
         <h5>Navigate</h5>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="programs.html">Programs</a></li>
           <li><a href="about.html">About Sodiq</a></li>
           <li><a href="media.html">Media</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -61,8 +78,8 @@ const FOOTER_HTML = `
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span data-year></span> Sodiq Yusuff MMA. All rights reserved.</span>
-      <span>Waldorf, Maryland · Est. 2025</span>
+      <span>(c) <span data-year></span> Sodiq Yusuff MMA. All rights reserved.</span>
+      <span>Waldorf, Maryland - Est. 2025</span>
     </div>
   </div>
 </footer>`;
