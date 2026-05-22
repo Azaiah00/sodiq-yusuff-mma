@@ -80,6 +80,7 @@ const FOOTER_HTML = `
     <div class="footer-bottom">
       <span>(c) <span data-year></span> Sodiq Yusuff MMA. All rights reserved.</span>
       <span>Waldorf, Maryland - Est. 2025</span>
+      <span class="footer-credit">Designed by <a href="https://www.couturehouse.co" target="_blank" rel="noopener" title="Couture House - Web Design">Couture House</a></span>
     </div>
   </div>
 </footer>`;
