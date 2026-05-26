@@ -138,8 +138,6 @@
       form.setAttribute('data-form-init', '1');
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        // Skim values out of the form. Markup varies across pages, so pick by
-        // input type and label text rather than relying on strict `name` attrs.
         const labelText = (input) => {
           const f = input.closest('.field');
           if (!f) return '';
@@ -160,20 +158,17 @@
           else if (!data.first_name && input.type === 'text') data.first_name = v;
         });
 
-        // Basic validation — let the user know what's missing before redirecting
         if (!data.first_name || !data.phone || !data.email) {
           alert('Please fill out your name, phone, and email so we can reserve your spot.');
           return;
         }
 
-        // Cache lead locally so we never lose it even if the redirect fails
         try {
           const existing = JSON.parse(localStorage.getItem('sy_leads') || '[]');
           existing.push({ ...data, captured_at: new Date().toISOString(), source: 'on-page-trial-form', page: location.pathname });
           localStorage.setItem('sy_leads', JSON.stringify(existing));
         } catch (e) {}
 
-        // Visual feedback before redirect
         const btn = form.querySelector('button[type="submit"]');
         if (btn) {
           btn.textContent = 'Reserving your spot...';
@@ -181,9 +176,6 @@
           btn.disabled = true;
         }
 
-        // Redirect to thank-you.html where the GHL booking widget lives
-        // (i8u9HxxLZCtRtth3QFN7). Same destination as the exit-intent popup
-        // so every entry point funnels to the same calendar.
         const params = new URLSearchParams({
           first_name: data.first_name,
           last_name: data.last_name,
@@ -272,4 +264,78 @@
     const fallbackTimer = setTimeout(open, FALLBACK_MS);
 
     function cleanup() {
-      document.remo
+      document.removeEventListener('mouseleave', onMouseLeave);
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(mobileTimer);
+      clearTimeout(fallbackTimer);
+    }
+
+    if (!isMobile) {
+      document.addEventListener('mouseleave', onMouseLeave);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    popup.querySelectorAll('[data-exit-close]').forEach(el => {
+      el.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && popup.classList.contains('is-open')) close();
+    });
+
+    const form = document.getElementById('exitPopupForm');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        if (form.getAttribute('action')) return;
+        e.preventDefault();
+        const get = (sel) => {
+          const el = form.querySelector(sel);
+          return el ? (el.value || '').trim() : '';
+        };
+        const data = {
+          first_name: get('[name="first_name"]'),
+          phone: get('[name="phone"]'),
+          email: get('[name="email"]'),
+          program: get('[name="program"]'),
+          captured_at: new Date().toISOString(),
+          source: 'exit-intent-popup'
+        };
+        if (!data.first_name || !data.phone || !data.email || !data.program) {
+          alert('Please fill out all fields so we can reserve your spot.');
+          return;
+        }
+        try {
+          const existing = JSON.parse(localStorage.getItem('sy_leads') || '[]');
+          existing.push(data);
+          localStorage.setItem('sy_leads', JSON.stringify(existing));
+        } catch(e) {}
+        try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch(e) {}
+        const params = new URLSearchParams({
+          first_name: data.first_name,
+          email: data.email,
+          phone: data.phone,
+          program: data.program
+        });
+        window.location.href = 'thank-you.html?' + params.toString();
+      });
+    }
+  };
+
+  const initAll = () => {
+    setupNav();
+    setupReveals();
+    setupCounters();
+    setupTabs();
+    setupAnchors();
+    setupForms();
+    setupParallax();
+    setupExitPopup();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+  document.addEventListener('partials:loaded', initAll);
+
+})();
