@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css?v=34" />
+<link rel="stylesheet" href="assets/css/styles.css?v=35" />
 <link rel="icon" type="image/png" href="assets/images/super-sodiq-logo.png" />
 <style>
   .program-banner {
@@ -235,28 +235,13 @@
     <!-- FORM #2 (Programs — universal trial). Routing: see FORMS-GHL-ROUTING.md §2.
          Same as Home + tag by "interested_in" for personalization.
          Redirect after submit → thank-you.html -->
-    <form class="form-card reveal" data-form>
-      <div class="form-grid">
-        <div class="field"><label>First Name</label><input type="text" required /></div>
-        <div class="field"><label>Last Name</label><input type="text" required /></div>
-        <div class="field"><label>Phone Number</label><input type="tel" required /></div>
-        <div class="field"><label>Email Address</label><input type="email" required /></div>
-        <div class="field full"><label>Who is this for?</label>
-          <select required>
-            <option value="">Select…</option><option>Myself</option><option>My Child</option><option>Both</option>
-          </select>
-        </div>
-        <div class="field full"><label>Child's age (if applicable)</label><input type="text" placeholder="Optional" /></div>
-        <div class="field full"><label>What are you most interested in?</label>
-          <select>
-            <option value="">Select…</option>
-            <option>Fitness</option><option>Self-Defense</option><option>Competition</option>
-            <option>My Child's Development</option><option>Not Sure Yet</option>
-          </select>
-     l" /></div>
-      </div>
-      <div style="text-align:center;margin-top:28px;"><button type="submit" class="btn btn-blood btn-lg pulse">Get Started — My First 30 Days Are Free</button></div>
-    </form>
+    <div class="ghl-booking reveal" style="max-width:960px;margin:0 auto;background:var(--bg-2);border:1px solid var(--border-bright);border-radius:4px;padding:24px;">
+      <iframe src="https://api.leadconnectorhq.com/widget/booking/i8u9HxxLZCtRtth3QFN7"
+              style="width:100%;border:none;overflow:hidden;min-height:780px;"
+              scrolling="no"
+              id="i8u9HxxLZCtRtth3QFN7_programs_1"></iframe>
+    </div>
+    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
   </div>
 </section>
 
@@ -299,7 +284,7 @@
   </div>
 </div>
 
-<script src="assets/js/partials.js?v=34"></script>
-<script src="assets/js/main.js?v=34"></script>
+<script src="assets/js/partials.js?v=35"></script>
+<script src="assets/js/main.js?v=35"></script>
 </body>
 </html>
